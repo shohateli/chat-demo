@@ -17,6 +17,7 @@ form.addEventListener('submit', (e) => {
       const answer = document.getElementById(now);
       answer.innerHTML = r;
     })
+    .catch(err=>alert(err))
 
   input.value = "";
 });
