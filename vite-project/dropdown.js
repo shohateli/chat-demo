@@ -26,12 +26,13 @@ const STYLES = `
     align-items: center;
     height: 45px;
     padding: 0 20px;
+    cursor: pointer;
   }
 
   .dropdown-data.open {
     flex-direction: column;
-    height: 120px;
-    overflow: scroll;
+    height: 130px;
+    overflow-y: scroll;
     padding: 5px 0px;
   }
 
@@ -41,7 +42,8 @@ const STYLES = `
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    color: black;
+    color: #706c79;
+    cursor: pointer;
   }
   .dropdown-item.selected {
     color: ${COLOR};
@@ -49,6 +51,17 @@ const STYLES = `
   .dropdown-item h4 {
     margin: 0px;
     padding: 0px;
+    font-weight: 400;
+  }
+
+  .dropdown-data::-webkit-scrollbar {
+    background-color: #ededef;
+    border-radius: 12px;
+  }
+  .dropdown-data::-webkit-scrollbar-thumb {
+    background-color: #9f69fd;
+    border-radius: 12px;
+    border: 2px solid #ededef;
   }
 `;
 
@@ -126,6 +139,10 @@ class Dropdown {
 
     this.justChanged = true; // Expand gets triggered on change so this stops it from running
     this.show();
+
+    // Closes the open cube1 popup
+    const container = document.getElementsByClassName("switch-model-container")[0];
+    container.classList.remove("active");
   }
 }
 

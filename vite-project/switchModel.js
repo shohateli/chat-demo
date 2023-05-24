@@ -59,6 +59,13 @@ const STYLES = `
   .switch-model-header h4 {
     margin: 0px;
     padding: 0px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: #5e5969;
+  }
+
+  #close-switch-model {
+    cursor: pointer;
   }
 
   @keyframes scale-up-bottom{
@@ -106,7 +113,7 @@ export class SwitchModel {
     this.showSwitchModel = !this.showSwitchModel;
     const container = document.getElementsByClassName("switch-model-container")[0];
 
-    if (this.showSwitchModel && !alwaysClose) {
+    if ((this.showSwitchModel && !alwaysClose) || !container.classList.contains("active")) {
       container.classList.add("active");
     } else {
       container.classList.remove("active");
