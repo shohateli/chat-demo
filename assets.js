@@ -39,7 +39,7 @@ export const styles = `
         transition: max-height .2s ease;
         font-family: Helvetica, Arial ,sans-serif;
         background-color: #e6e6e6a6;
-        border-radius: 10px;
+        border-radius: 12px;
         box-sizing: border-box;
     }
     .widget__icon {
