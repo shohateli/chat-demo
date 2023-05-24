@@ -113,7 +113,7 @@ class MessageWidget {
       this.closeIcon.classList.remove("widget__hidden");
       this.widgetContainer.classList.remove("widget__hidden");
     } else {
-      this.createWidgetContent();
+      // this.createWidgetContent(); // resets the data
       this.widgetIcon.classList.remove("widget__hidden");
       this.closeIcon.classList.add("widget__hidden");
       this.widgetContainer.classList.add("widget__hidden");

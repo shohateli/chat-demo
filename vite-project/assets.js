@@ -1,3 +1,5 @@
+export const COLOR = "#a16dfd";
+
 export const MESSAGE_ICON = `
     <img src="./media/chatbot_logo_white.svg" width="32" height="32">
 `;
@@ -123,24 +125,22 @@ export const styles = `
     align-items: center;
   }
 
-  .message-bubble-response {
+  .message-bubble {
     position: relative;
-    background-color: #ededef;
-    color: #333;
-    padding: 15px 0px 15px 40px;
-    border-radius: 12px 12px 12px 12px;
+    border-radius: 12px;
     max-width: 250px;
     font-size: 20px;
     margin: 20px;
   }
-  .message-bubble {
-    position: relative;
-    background-color: #a16dfd;
+  .message-bubble.response {
+    background-color: #ededef;
+    color: #333;
+    padding: 15px 0px 15px 40px;
+  }
+  .message-bubble.request {
+    background-color: #9f69fd;
     color: white;
     padding: 15px;
-    border-radius: 12px 12px 12px 12px;
-    max-width: 250px;
-    font-size: 20px;
     float: right;
   }
   #message-bubble-response-icon {
@@ -150,6 +150,17 @@ export const styles = `
     left: -25px;
     top: -25px;
     border: 5px solid white;
+  }
+  .timestamp {
+    position: absolute;
+    bottom: -20px;
+    font-size: 14px;
+    color: #b4abc2;
+  }
+  .timestamp.left { left: 10px; }
+  .timestamp.right { right: 10px; }
+  .question {
+    overflow-wrap: break-word;
   }
 
   .chat {
@@ -177,21 +188,37 @@ export const styles = `
 `;
 
 export const botMessageBubble = (text, id=`${Date.now()}`) => {
-  return `<div class="message-bubble-response">
-    <div class="button__container" id="message-bubble-response-icon">
-      ${MESSAGE_ICON}
+  return `
+    <div class="message-bubble response">
+      <div class="button__container" id="message-bubble-response-icon">
+        ${MESSAGE_ICON}
+      </div>
+
+      <span id=${id} class="question">
+        ${text}
+      </span>
+
+      <span class="timestamp left" id="time${id}"></span>
+    </div>`
+}
+
+export const messageBubble = (text, time="") => {
+  return `
+    <div class="message-bubble request">
+      <span class="question">
+        ${text}
+      </span>
+
+      <span class="timestamp right">${time}</span>
     </div>
-
-    <span id=${id} class="question">
-      ${text}
-    </span>
-  </div>`
+    <div style="clear: right;"></div>
+  `
 }
 
-export const messageBubble = (text) => {
-  return `<div class="message-bubble">
-    <span class="question">
-      ${text}
-    </span>
-  </div><br><br><br>`
-}
+export const injectCSS = css => {
+  let el = document.createElement('style');
+  el.type = 'text/css';
+  el.innerText = css;
+  document.head.appendChild(el);
+  return el;
+};

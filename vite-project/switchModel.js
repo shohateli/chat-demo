@@ -1,19 +1,33 @@
-const SWITCH_MODEL_HTML = `<div class="switch-model">
+import { injectCSS } from "./assets";
+import Dropdown from "./dropdown";
+
+const MODELS = [
+  'model1',
+  'model2',
+  'model3',
+  'model4',
+];
+
+const SWITCH_MODEL_HTML = `<div class="switch-model" id="switch-model">
   <div class="switch-model-header">
     <h4>Switch your model</h4>
     <div id="close-switch-model"><img src="./media/close.svg" height="32" width="32"></div>
   </div>
 
-  <div></div>
 </div>`;
 
 const STYLES = `
   .switch-model-container {
     display: none;
     position: absolute;
-    top: -110px;
+    top: -120px;
     height: 130px;
     width: 100%;
+  }
+
+  .switch-model-container.expand {
+    top: -190px;
+    height: 200px;
   }
 
   .switch-model-container.active {
@@ -28,10 +42,16 @@ const STYLES = `
     padding: 20px 20px;
     background-color: white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
 
   .switch-model-header {
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -60,11 +80,15 @@ export class SwitchModel {
     this.switchModelContainer.classList.add("switch-model-container");
 
     this.showSwitchModel = false;
+
+    this.current = MODELS[0];
   }
 
   addSwitchModel() {
     const container = document.getElementById("send-form-container");
     container.prepend(this.switchModelContainer);
+
+    const dropdown = new Dropdown(MODELS, "switch-model", this.current);
 
     injectCSS(STYLES);
   }
@@ -89,11 +113,3 @@ export class SwitchModel {
     }
   }
 }
-
-const injectCSS = css => {
-  let el = document.createElement('style');
-  el.type = 'text/css';
-  el.innerText = css;
-  document.head.appendChild(el);
-  return el;
-};
