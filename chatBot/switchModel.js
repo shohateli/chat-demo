@@ -1,4 +1,4 @@
-import { injectCSS } from "./assets";
+import { injectCSS } from "../assets/styles";
 import Dropdown from "./dropdown";
 
 const MODELS = [

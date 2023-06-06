@@ -1,4 +1,5 @@
-import { COLOR, injectCSS } from "./assets";
+import { COLOR } from "../assets/colors";
+import { injectCSS } from "../assets/styles";
 
 const STYLES = `
   .dropdown-container {

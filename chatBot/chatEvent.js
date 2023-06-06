@@ -1,4 +1,4 @@
-import { botMessageBubble, messageBubble } from "./assets";
+import { botMessageBubble, messageBubble } from "../assets/messageBubble";
 
 export const askQuestionListener = () => {
   const form = document.getElementById("send-form");

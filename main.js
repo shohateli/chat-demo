@@ -1,6 +1,8 @@
-import { CLOSE_ICON, MESSAGE_ICON, BOT_ICON, SEND_ICON, BOX_ICON, styles, botMessageBubble } from "./assets.js";
-import { askQuestionListener, scrollToBottomObserver } from './chatEvent.js';
-import { SwitchModel } from "./switchModel.js";
+import { BOT_ICON, BOX_ICON, CLOSE_ICON, MESSAGE_ICON, SEND_ICON } from './assets/icons.js';
+import { botMessageBubble } from './assets/messageBubble.js';
+import { styles } from './assets/styles.js';
+import { askQuestionListener, scrollToBottomObserver } from './chatBot/chatEvent.js';
+import { SwitchModel } from "./chatBot/switchModel.js";
 
 class MessageWidget {
   constructor(position = "bottom-right") {
@@ -87,13 +89,20 @@ class MessageWidget {
           <div class="chat-top-bottom" id="send-form-container">
 
             <form id="send-form">
-              <input required id="send-input" placeholder="Type a message">
+              <input required id="send-input" placeholder="Type a message" autocomplete="off">
 
               <div class="send-buttons-container">
                 <button type="button" id="box-button" class="icon-button-container">${BOX_ICON}</button>
+                <span id="divider"></span>
                 <button type="submit" id="send-button" class="icon-button-container">${SEND_ICON}</button>
               </div>
             </form>
+
+            <div class="powered-by">
+              <span>Powered by </span>&nbsp;
+              ${BOT_ICON}
+              &nbsp;<span> Majic Chatbot<span/>
+            </div>
           </div>
         </div>
     `;
