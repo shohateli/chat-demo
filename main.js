@@ -1,7 +1,7 @@
 import { COLORS } from './assets/colors.js';
-import { BOT_ICON, CLOSE_ICON, MESSAGE_ICON, getImageFromSvgText, getBoxIcon, getSendIcon } from './assets/icons.js';
+import { BOT_ICON, CLOSE_ICON, MESSAGE_ICON, getImageFromSvgText, iconStyles } from './assets/icons.js';
 import { botMessageBubble } from './assets/messageBubble.js';
-import { styles } from './assets/styles.js';
+import { injectCSS, styles } from './assets/styles.js';
 import { WIDGET_HTML } from './assets/widgetHtml.js';
 import { askQuestionListener, scrollToBottomObserver } from './chatBot/chatEvent.js';
 import { SwitchModel } from "./chatBot/switchModel.js";
@@ -88,6 +88,8 @@ class MessageWidget {
     styleTag.innerHTML = styles.replace(/^\s+|\n/gm, "");
 
     document.head.appendChild(styleTag);
+
+    injectCSS(iconStyles);
   }
 
   toggleOpen() {

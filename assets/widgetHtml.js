@@ -1,6 +1,6 @@
 import { canChangeModels } from "../lib/canChangeModels";
 import { LIGHT_MODE, DARK_MODE, COLORS } from "./colors";
-import { BOT_ICON, getImageFromSvgText, getSendIcon, getBoxIcon } from "./icons";
+import { BOT_ICON, getImageFromSvgText, BOX_ICON, SEND_ICON } from "./icons";
 import { botMessageBubble } from "./messageBubble";
 
 export const WIDGET_HTML = `
@@ -21,13 +21,13 @@ export const WIDGET_HTML = `
 
       <div class="send-buttons-container">
         <button type="submit" id="send-button" class="icon-button-container">
-          <img height="100%" width="100%" src="${getImageFromSvgText(getSendIcon(COLORS.boxHighlighted))}">
+          ${SEND_ICON}
         </button>
 
         ${ canChangeModels() ? `
           <span id="divider"></span>
           <button type="button" id="box-button" class="icon-button-container">
-            <img id="box-image" src="${getImageFromSvgText(getBoxIcon(COLORS.boxMuted))}">
+            ${BOX_ICON}
           </button>
         ` : "" }
       </div>
@@ -41,3 +41,5 @@ export const WIDGET_HTML = `
   </div>
 </div>
 `;
+
+//<img height="100%" width="100%" src="${getImageFromSvgText(SEND_ICON)}">

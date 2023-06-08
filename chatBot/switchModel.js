@@ -1,6 +1,6 @@
 
 import { COLORS, DARK_MODE, LIGHT_MODE } from "../assets/colors";
-import { getBoxIcon, getClosePopupIcon, getImageFromSvgText } from "../assets/icons";
+import { getImageFromSvgText, CLOSE_POPUP_ICON } from "../assets/icons";
 import { injectCSS } from "../assets/styles";
 import Dropdown from "./dropdown";
 
@@ -14,7 +14,7 @@ const MODELS = [
 const SWITCH_MODEL_HTML = `<div class="switch-model" id="switch-model">
   <div class="switch-model-header">
     <h4>Switch your model</h4>
-    <div id="close-switch-model">${getClosePopupIcon(COLORS.closePopupColor)}</div>
+    <div id="close-switch-model">${CLOSE_POPUP_ICON}</div>
   </div>
 </div>
 <div class="arrow-down"/>
@@ -74,7 +74,7 @@ const STYLES = `
 
   .arrow-down {
     position: absolute;
-    right: 44px;
+    right: 35px;
     bottom: -10px;
     width: 0;
     height: 0;
@@ -141,14 +141,21 @@ export class SwitchModel {
   toggleShowSwitchModel(alwaysClose=false) {
     this.showSwitchModel = !this.showSwitchModel;
     const container = document.getElementsByClassName("switch-model-container")[0];
-    const boxImage = document.getElementById("box-image");
 
     if ((this.showSwitchModel && !alwaysClose) || !container.classList.contains("active")) {
       container.classList.add("active");
-      boxImage.src = getImageFromSvgText(getBoxIcon(COLORS.boxHighlighted));
+      toggleBoxIcon("open");
     } else {
       container.classList.remove("active");
-      boxImage.src = getImageFromSvgText(getBoxIcon(COLORS.boxMuted));
+      toggleBoxIcon('close');
     }
   }
+}
+
+export function toggleBoxIcon(openOrClose="close") {
+  const boxImages = document.getElementsByClassName("box-icon");
+  Array.from(boxImages).forEach(boxImage => {
+    if (openOrClose === "open") boxImage.classList.add('selected');
+    else boxImage.classList.remove('selected');
+  })
 }

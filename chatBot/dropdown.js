@@ -1,6 +1,7 @@
 import { COLORS, DARK_MODE, LIGHT_MODE } from "../assets/colors";
-import { getBoxIcon, getCheckmarkIcon, getDownIcon, getImageFromSvgText } from "../assets/icons";
+import { CHECKMARK_ICON, DOWN_ICON, getImageFromSvgText } from "../assets/icons";
 import { injectCSS } from "../assets/styles";
+import { toggleBoxIcon } from "./switchModel";
 
 const STYLES = `
   .dropdown-container {
@@ -122,7 +123,7 @@ class Dropdown {
     return `<div class="dropdown">
       <div class="dropdown-data closed">
         <h4>${this.current}</h4>
-        ${getDownIcon(COLORS.responseTextColor)}
+        ${DOWN_ICON}
       </div>
     </div>
     `;
@@ -137,7 +138,7 @@ class Dropdown {
       return `<div class="dropdown-item${item === this.current ? ' selected' : ''}">
         <h4>${item}</h4>
         <span>
-          ${item === this.current ? getCheckmarkIcon(COLORS.boxHighlighted) : ''}
+          ${item === this.current ? CHECKMARK_ICON : ''}
         </span>
       </div>`;
     });
@@ -171,8 +172,7 @@ class Dropdown {
     const container = document.getElementsByClassName("switch-model-container")[0];
     container.classList.remove("active");
 
-    const boxImage = document.getElementById("box-image");
-    boxImage.src = getImageFromSvgText(getBoxIcon(COLORS.boxMuted));
+    toggleBoxIcon("close");
   }
 }
 
