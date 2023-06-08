@@ -1,4 +1,4 @@
-import { COLORS } from "./colors";
+import { DARK_MODE, LIGHT_MODE } from "./colors";
 
 export const styles = `
     .widget__container * {
@@ -37,7 +37,7 @@ export const styles = `
   }
   .button__container {
       border: none;
-      background-color: ${COLORS.defaultColor};
+      background-color: ${LIGHT_MODE.defaultColor};
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -56,7 +56,7 @@ export const styles = `
     justify-content: flex-start;
     align-items: center;
     padding: 10px 20px;
-    background-color: ${COLORS.defaultColor};
+    background-color: ${LIGHT_MODE.defaultColor};
   }
   #widget__header__icon {
     background-color: white;
@@ -79,17 +79,17 @@ export const styles = `
     padding: 0px 20px;
     width: 392px;
     height: 46px;
-    background: ${COLORS.inputBackground};
-    border: 1px solid ${COLORS.inputBorder};
+    background: ${LIGHT_MODE.inputBackground};
+    border: 1px solid ${LIGHT_MODE.inputBorder};
     border-radius: 50px;
     margin: 0 auto 0px;
   }
   #send-form-container {
     position: relative;
     width: 100%;
-    background: ${COLORS.backgroundColor};
+    background: ${LIGHT_MODE.backgroundColor};
     padding-top: 20px;
-    border-top: 1px solid ${COLORS.borderColor};
+    border-top: 1px solid ${LIGHT_MODE.borderColor};
     display: flex;
     flex-direction: column;
   }
@@ -98,7 +98,7 @@ export const styles = `
     width: 284px;
     height: 30px;
     background: transparent;
-    color: ${COLORS.inputColor};
+    color: ${LIGHT_MODE.inputColor};
     font-size: 14px;
   }
   #send-form input:focus {
@@ -141,13 +141,13 @@ export const styles = `
     min-height: 53px;
   }
   .message-bubble.response {
-    background-color: ${COLORS.responseBackgroundColor};
-    color: ${COLORS.responseTextColor};
+    background-color: ${LIGHT_MODE.responseBackgroundColor};
+    color: ${LIGHT_MODE.responseTextColor};
     padding: 14px 20px 15px 40px;
   }
   .message-bubble.request {
-    background-color: ${COLORS.questionBackgroundColor};
-    color: ${COLORS.questionTextColor};
+    background-color: ${LIGHT_MODE.questionBackgroundColor};
+    color: ${LIGHT_MODE.questionTextColor};
     padding: 14px 20px 15px;
     float: right;
   }
@@ -157,11 +157,11 @@ export const styles = `
     position: absolute;
     left: -22px;
     top: -22px;
-    border: 4px solid ${COLORS.backgroundColor};
+    border: 4px solid ${LIGHT_MODE.backgroundColor};
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${COLORS.defaultColor};
+    background-color: ${LIGHT_MODE.defaultColor};
     border-radius: 50%;
   }
   .timestamp {
@@ -179,7 +179,7 @@ export const styles = `
   }
 
   .chat {
-    background-color: ${COLORS.backgroundColor};
+    background-color: ${LIGHT_MODE.backgroundColor};
     height: 450px;
     width: 100%;
     padding: 20px;
@@ -188,16 +188,16 @@ export const styles = `
     margin: 0;
   }
 
-  ::-webkit-scrollbar {
+  .chat::-webkit-scrollbar {
     width: 15px;
   }
-  ::-webkit-scrollbar-track {
-    background-color: ${COLORS.scrollbarBackground};
+  .chat::-webkit-scrollbar-track {
+    background-color: ${LIGHT_MODE.scrollbarBackground};
   }
-  ::-webkit-scrollbar-thumb {
-    background-color: ${COLORS.scrollbarThumb};
+  .chat::-webkit-scrollbar-thumb {
+    background-color: ${LIGHT_MODE.scrollbarThumb};
     border-radius: 10px;
-    border: 4px solid ${COLORS.scrollbarBackground};
+    border: 4px solid ${LIGHT_MODE.scrollbarBackground};
   }
 
   button {
@@ -220,7 +220,7 @@ export const styles = `
 
   .powered-by {
     height: 46px;
-    background-color: ${COLORS.backgroundColor};
+    background-color: ${LIGHT_MODE.backgroundColor};
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -228,10 +228,65 @@ export const styles = `
   }
   .powered-by span {
     font-size: 12px;
-    color: ${COLORS.responseTextColor};
+    color: ${LIGHT_MODE.responseTextColor};
   }
   #grey-text {
     color: #B3ABC2;
+  }
+
+
+  @media (prefers-color-scheme: dark) {
+    .button__container {
+      background-color: ${DARK_MODE.defaultColor};
+    }
+
+    .widget__header {
+      background-color: ${DARK_MODE.defaultColor};
+    }
+
+    .message-bubble.response {
+      background-color: ${DARK_MODE.responseBackgroundColor};
+      color: ${DARK_MODE.responseTextColor};
+    }
+    .message-bubble.request {
+      background-color: ${DARK_MODE.questionBackgroundColor};
+      color: ${DARK_MODE.questionTextColor};
+    }
+    #message-bubble-response-icon {
+      border: 4px solid ${DARK_MODE.backgroundColor};
+      background-color: ${DARK_MODE.defaultColor};
+    }
+
+    #send-form {
+      background: ${DARK_MODE.inputBackground};
+      border: 1px solid ${DARK_MODE.inputBorder};
+    }
+    #send-form-container {
+      background: ${DARK_MODE.backgroundColor};
+      border-top: 1px solid ${DARK_MODE.borderColor};
+    }
+    #send-form input {
+      color: ${DARK_MODE.inputColor};
+    }
+
+    .chat {
+      background-color: ${DARK_MODE.backgroundColor};
+    }
+
+    .chat::-webkit-scrollbar-track {
+      background-color: ${DARK_MODE.scrollbarBackground};
+    }
+    .chat::-webkit-scrollbar-thumb {
+      background-color: ${DARK_MODE.scrollbarThumb};
+      border: 4px solid ${DARK_MODE.scrollbarBackground};
+    }
+
+    .powered-by {
+      background-color: ${DARK_MODE.backgroundColor};
+    }
+    .powered-by span {
+      color: ${DARK_MODE.responseTextColor};
+    }
   }
 
 `;

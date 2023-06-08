@@ -1,5 +1,3 @@
-import { COLORS } from "./colors";
-
 export const MESSAGE_ICON = `<svg width="32" height="32" viewBox="0 0 330 369" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M77 369L114.5 289H235L77 369Z" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M30 136H20C8.95431 136 0 144.954 0 156V194C0 205.046 8.9543 214 20 214H30V136Z" fill="white"/>

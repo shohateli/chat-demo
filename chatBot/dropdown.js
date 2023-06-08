@@ -1,4 +1,4 @@
-import { COLORS } from "../assets/colors";
+import { COLORS, DARK_MODE, LIGHT_MODE } from "../assets/colors";
 import { getBoxIcon, getCheckmarkIcon, getDownIcon, getImageFromSvgText } from "../assets/icons";
 import { injectCSS } from "../assets/styles";
 
@@ -15,10 +15,10 @@ const STYLES = `
 
   .dropdown-data {
     width: 100%;
-    color: ${COLORS.boxHighlighted};
+    color: ${LIGHT_MODE.boxHighlighted};
 
     display: flex;
-    background-color: ${COLORS.dropdownBackground};
+    background-color: ${LIGHT_MODE.dropdownBackground};
     border-radius: 12px;
   }
 
@@ -44,11 +44,11 @@ const STYLES = `
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    color: ${COLORS.dropdownTextColor};
+    color: ${LIGHT_MODE.dropdownTextColor};
     cursor: pointer;
   }
   .dropdown-item.selected {
-    color: ${COLORS.dropdownSelectedTextColor};
+    color: ${LIGHT_MODE.dropdownSelectedTextColor};
   }
   .dropdown-item h4 {
     margin: 0px;
@@ -57,14 +57,39 @@ const STYLES = `
   }
 
   .dropdown-data::-webkit-scrollbar {
-    background-color: ${COLORS.dropdownBackgroundColor};
+    background-color: ${LIGHT_MODE.dropdownBackgroundColor};
     border-radius: 12px;
     width: 7px;
   }
   .dropdown-data::-webkit-scrollbar-thumb {
-    background-color: ${COLORS.boxHighlighted};
+    background-color: ${LIGHT_MODE.boxHighlighted};
     border-radius: 12px;
-    border: 2px solid ${COLORS.dropdownBackgroundColor};
+    border: 2px solid ${LIGHT_MODE.dropdownBackgroundColor};
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dropdown-data {
+      color: ${DARK_MODE.boxHighlighted};
+      background-color: ${DARK_MODE.dropdownBackground};
+    }
+
+    .dropdown-item {
+      color: ${DARK_MODE.dropdownTextColor};
+    }
+    .dropdown-item.selected {
+      color: ${DARK_MODE.dropdownSelectedTextColor};
+    }
+
+    .dropdown-data::-webkit-scrollbar {
+      background-color: ${DARK_MODE.dropdownBackgroundColor};
+      border-radius: 12px;
+      width: 7px;
+    }
+    .dropdown-data::-webkit-scrollbar-thumb {
+      background-color: ${DARK_MODE.boxHighlighted};
+      border-radius: 12px;
+      border: 2px solid ${DARK_MODE.dropdownBackgroundColor};
+    }
   }
 `;
 

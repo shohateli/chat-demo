@@ -1,5 +1,5 @@
 
-import { COLORS } from "../assets/colors";
+import { COLORS, DARK_MODE, LIGHT_MODE } from "../assets/colors";
 import { getBoxIcon, getClosePopupIcon, getImageFromSvgText } from "../assets/icons";
 import { injectCSS } from "../assets/styles";
 import Dropdown from "./dropdown";
@@ -44,7 +44,7 @@ const STYLES = `
     margin: 0 auto;
     border-radius: 12px;
     padding: 20px 20px;
-    background-color: ${COLORS.popupBackgroundColor};
+    background-color: ${LIGHT_MODE.popupBackgroundColor};
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
     display: flex;
@@ -65,7 +65,7 @@ const STYLES = `
     padding: 0px;
     font-weight: 500;
     margin-left: 10px;
-    color: ${COLORS.responseTextColor};
+    color: ${LIGHT_MODE.responseTextColor};
   }
 
   #close-switch-model {
@@ -80,7 +80,7 @@ const STYLES = `
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 15px solid ${COLORS.popupBackgroundColor};
+    border-top: 15px solid ${LIGHT_MODE.popupBackgroundColor};
   }
 
   @keyframes scale-up-bottom{
@@ -91,6 +91,20 @@ const STYLES = `
     100%{
       transform:scale(1);
       transform-origin:center bottom;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .switch-model {
+      background-color: ${DARK_MODE.popupBackgroundColor};
+    }
+
+    .switch-model-header h4 {
+      color: ${DARK_MODE.responseTextColor};
+    }
+
+    .arrow-down {
+      border-top: 15px solid ${DARK_MODE.popupBackgroundColor};
     }
   }
 `;

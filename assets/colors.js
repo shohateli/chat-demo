@@ -1,6 +1,6 @@
 const MAIN_COLOR = "#a16dfd"
 
-const LIGHT_MODE = {
+export const LIGHT_MODE = {
   defaultColor: MAIN_COLOR,
   backgroundColor: 'white',
   borderColor: '#E8E8E8',
@@ -26,7 +26,7 @@ const LIGHT_MODE = {
 };
 
 
-const DARK_MODE = {
+export const DARK_MODE = {
   defaultColor: MAIN_COLOR,
   backgroundColor: '#272727',
   borderColor: '#454545',
@@ -54,5 +54,10 @@ const DARK_MODE = {
 };
 
 
-const isDarkMode = false;
+let isDarkMode = false;
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  isDarkMode = true;
+}
+
 export const COLORS = isDarkMode ? DARK_MODE : LIGHT_MODE;
