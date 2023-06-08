@@ -1,17 +1,20 @@
-import { MESSAGE_ICON } from "./icons"
+import { formatAMPM } from "../chatBot/chatEvent"
+import { MESSAGE_ICON, getImageFromSvgText } from "./icons"
 
 export const botMessageBubble = (text, id=`${Date.now()}`) => {
   return `
     <div class="message-bubble response">
-      <div class="button__container" id="message-bubble-response-icon">
-        ${MESSAGE_ICON}
+      <div id="message-bubble-response-icon">
+        <img width="25px" height="25px" src="${getImageFromSvgText(MESSAGE_ICON)}">
       </div>
 
       <span id=${id} class="question">
         ${text}
       </span>
 
-      <span class="timestamp left" id="time${id}"></span>
+      <span class="timestamp left" id="time${id}">
+          ${ id === "start" ? formatAMPM(new Date()) : "" }
+      </span>
     </div>`
 }
 

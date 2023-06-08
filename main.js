@@ -1,8 +1,10 @@
-import { BOT_ICON, BOX_ICON, CLOSE_ICON, MESSAGE_ICON, SEND_ICON } from './assets/icons.js';
+import { COLORS } from './assets/colors.js';
+import { BOT_ICON, CLOSE_ICON, MESSAGE_ICON, getImageFromSvgText, getBoxIcon, getSendIcon } from './assets/icons.js';
 import { botMessageBubble } from './assets/messageBubble.js';
 import { styles } from './assets/styles.js';
 import { askQuestionListener, scrollToBottomObserver } from './chatBot/chatEvent.js';
 import { SwitchModel } from "./chatBot/switchModel.js";
+import { canChangeModels } from './lib/canChangeModels.js';
 
 class MessageWidget {
   constructor(position = "bottom-right") {
@@ -92,15 +94,22 @@ class MessageWidget {
               <input required id="send-input" placeholder="Type a message" autocomplete="off">
 
               <div class="send-buttons-container">
-                <button type="button" id="box-button" class="icon-button-container">${BOX_ICON}</button>
-                <span id="divider"></span>
-                <button type="submit" id="send-button" class="icon-button-container">${SEND_ICON}</button>
+                <button type="submit" id="send-button" class="icon-button-container">
+                  <img height="100%" width="100%" src="${getImageFromSvgText(getSendIcon(COLORS.boxHighlighted))}">
+                </button>
+
+                ${ canChangeModels() ? `
+                  <span id="divider"></span>
+                  <button type="button" id="box-button" class="icon-button-container">
+                    <img id="box-image" src="${getImageFromSvgText(getBoxIcon(COLORS.boxMuted))}">
+                  </button>
+                ` : "" }
               </div>
             </form>
 
             <div class="powered-by">
-              <span>Powered by </span>&nbsp;
-              ${BOT_ICON}
+              <span id="grey-text">Powered by </span>&nbsp;
+              <img width="20px" src="${getImageFromSvgText(BOT_ICON)}">
               &nbsp;<span> Majic Chatbot<span/>
             </div>
           </div>

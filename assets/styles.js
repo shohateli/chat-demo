@@ -1,7 +1,12 @@
+import { COLORS } from "./colors";
+
 export const styles = `
     .widget__container * {
-        box-sizing: border-box;
-        font-size: 18px;
+      box-sizing: border-box;
+      font-size: 18px;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
     }
     h3, p, input {
         margin: 0;
@@ -32,7 +37,7 @@ export const styles = `
   }
   .button__container {
       border: none;
-      background-color: #a16dfd;
+      background-color: ${COLORS.defaultColor};
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -51,7 +56,7 @@ export const styles = `
     justify-content: flex-start;
     align-items: center;
     padding: 10px 20px;
-    background-color: #a16dfd;
+    background-color: ${COLORS.defaultColor};
   }
   #widget__header__icon {
     background-color: white;
@@ -62,6 +67,8 @@ export const styles = `
     color: white;
     margin-top: 2px;
     margin-left: 10px;
+    font-weight: 600;
+    font-size: 16px;
   }
 
   #send-form {
@@ -72,17 +79,17 @@ export const styles = `
     padding: 0px 20px;
     width: 392px;
     height: 46px;
-    background: #F6F7F9;
-    border: 1px solid #E8E8E8;
+    background: ${COLORS.inputBackground};
+    border: 1px solid ${COLORS.inputBorder};
     border-radius: 50px;
-    margin: 0 auto 5px;
+    margin: 0 auto 0px;
   }
   #send-form-container {
     position: relative;
     width: 100%;
-    background: white;
+    background: ${COLORS.backgroundColor};
     padding-top: 20px;
-    border-top: 1px solid #E8E8E8;
+    border-top: 1px solid ${COLORS.borderColor};
     display: flex;
     flex-direction: column;
   }
@@ -91,6 +98,7 @@ export const styles = `
     width: 284px;
     height: 30px;
     background: transparent;
+    color: ${COLORS.inputColor};
     font-size: 14px;
   }
   #send-form input:focus {
@@ -104,12 +112,14 @@ export const styles = `
     align-items: center;
   }
   #send-button {
-    height: 50px;
-    width: 50px;
+    height: 32px;
+    width: 32px;
+    margin-right: 5px;
   }
   #box-button {
-    height: 30;
+    height: 30px;
     width: 30px;
+    margin-left: 5px;
   }
   .send-buttons-container {
     display: flex;
@@ -126,49 +136,68 @@ export const styles = `
   .message-bubble {
     position: relative;
     border-radius: 12px;
-    max-width: 250px;
-    font-size: 20px;
     margin: 20px;
+    width: 228px;
+    min-height: 53px;
   }
   .message-bubble.response {
-    background-color: #ededef;
-    color: #333;
-    padding: 15px 0px 15px 40px;
+    background-color: ${COLORS.responseBackgroundColor};
+    color: ${COLORS.responseTextColor};
+    padding: 14px 20px 15px 40px;
   }
   .message-bubble.request {
-    background-color: #9f69fd;
-    color: white;
-    padding: 15px;
+    background-color: ${COLORS.questionBackgroundColor};
+    color: ${COLORS.questionTextColor};
+    padding: 14px 20px 15px;
     float: right;
   }
   #message-bubble-response-icon {
-    height: 60px;
-    width: 60px;
+    height: 51px;
+    width: 51px;
     position: absolute;
-    left: -25px;
-    top: -25px;
-    border: 5px solid white;
+    left: -22px;
+    top: -22px;
+    border: 4px solid ${COLORS.backgroundColor};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${COLORS.defaultColor};
+    border-radius: 50%;
   }
   .timestamp {
     position: absolute;
-    bottom: -20px;
-    font-size: 14px;
+    bottom: -15px;
+    font-weight: 500;
+    font-size: 11px;
     color: #b4abc2;
   }
   .timestamp.left { left: 10px; }
   .timestamp.right { right: 10px; }
   .question {
     overflow-wrap: break-word;
+    font-size: 14px;
   }
 
   .chat {
-    background-color: white;
+    background-color: ${COLORS.backgroundColor};
     height: 450px;
     width: 100%;
     padding: 20px;
     overflow-y: scroll;
     scroll-behavior: smooth;
     margin: 0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: ${COLORS.scrollbarBackground};
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${COLORS.scrollbarThumb};
+    border-radius: 10px;
+    border: 4px solid ${COLORS.scrollbarBackground};
   }
 
   button {
@@ -191,7 +220,7 @@ export const styles = `
 
   .powered-by {
     height: 46px;
-    background-color: white;
+    background-color: ${COLORS.backgroundColor};
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -199,6 +228,10 @@ export const styles = `
   }
   .powered-by span {
     font-size: 12px;
+    color: ${COLORS.responseTextColor};
+  }
+  #grey-text {
+    color: #B3ABC2;
   }
 
 `;

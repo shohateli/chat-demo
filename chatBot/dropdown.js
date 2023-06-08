@@ -1,4 +1,5 @@
-import { COLOR } from "../assets/colors";
+import { COLORS } from "../assets/colors";
+import { getBoxIcon, getCheckmarkIcon, getDownIcon, getImageFromSvgText } from "../assets/icons";
 import { injectCSS } from "../assets/styles";
 
 const STYLES = `
@@ -14,10 +15,10 @@ const STYLES = `
 
   .dropdown-data {
     width: 100%;
-    color: ${COLOR};
+    color: ${COLORS.boxHighlighted};
 
     display: flex;
-    background-color: #ededef;
+    background-color: ${COLORS.dropdownBackground};
     border-radius: 12px;
   }
 
@@ -43,11 +44,11 @@ const STYLES = `
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    color: #706c79;
+    color: ${COLORS.dropdownTextColor};
     cursor: pointer;
   }
   .dropdown-item.selected {
-    color: ${COLOR};
+    color: ${COLORS.dropdownSelectedTextColor};
   }
   .dropdown-item h4 {
     margin: 0px;
@@ -56,13 +57,14 @@ const STYLES = `
   }
 
   .dropdown-data::-webkit-scrollbar {
-    background-color: #ededef;
+    background-color: ${COLORS.dropdownBackgroundColor};
     border-radius: 12px;
+    width: 7px;
   }
   .dropdown-data::-webkit-scrollbar-thumb {
-    background-color: #9f69fd;
+    background-color: ${COLORS.boxHighlighted};
     border-radius: 12px;
-    border: 2px solid #ededef;
+    border: 2px solid ${COLORS.dropdownBackgroundColor};
   }
 `;
 
@@ -95,9 +97,10 @@ class Dropdown {
     return `<div class="dropdown">
       <div class="dropdown-data closed">
         <h4>${this.current}</h4>
-        <svg fill="black" height="15" width="15" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" transform="rotate(270)" stroke="white"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"></path> </g></svg>
+        ${getDownIcon(COLORS.responseTextColor)}
       </div>
-    </div>`;
+    </div>
+    `;
   }
 
   expand() {
@@ -109,9 +112,7 @@ class Dropdown {
       return `<div class="dropdown-item${item === this.current ? ' selected' : ''}">
         <h4>${item}</h4>
         <span>
-          ${item === this.current ? `
-          <svg fill="${COLOR}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="20px" height="20px"><path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"/></svg>
-          ` : ''}
+          ${item === this.current ? getCheckmarkIcon(COLORS.boxHighlighted) : ''}
         </span>
       </div>`;
     });
@@ -144,6 +145,9 @@ class Dropdown {
     // Closes the open cube1 popup
     const container = document.getElementsByClassName("switch-model-container")[0];
     container.classList.remove("active");
+
+    const boxImage = document.getElementById("box-image");
+    boxImage.src = getImageFromSvgText(getBoxIcon(COLORS.boxMuted));
   }
 }
 
