@@ -74,7 +74,7 @@ const STYLES = `
 
   .arrow-down {
     position: absolute;
-    right: 35px;
+    right: 44px;
     bottom: -10px;
     width: 0;
     height: 0;
