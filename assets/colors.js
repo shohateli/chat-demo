@@ -14,6 +14,8 @@ export const LIGHT_MODE = {
   closePopupColor: '#B3ABC2',
   dropdownBackground: "#EDEDEF",
   dropdownBorder: "none",
+  dropdownSelectedTextColor: MAIN_COLOR,
+  dropdownTextColor: '#5F5968',
   boxMuted: '#A599BA',
   boxHighlighted: MAIN_COLOR,
 
