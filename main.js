@@ -1,18 +1,16 @@
-import { COLORS } from './assets/colors.js';
 import { BOT_ICON, CLOSE_ICON, MESSAGE_ICON, getImageFromSvgText, iconStyles } from './assets/icons.js';
-import { botMessageBubble } from './assets/messageBubble.js';
 import { injectCSS, styles } from './assets/styles.js';
 import { WIDGET_HTML } from './assets/widgetHtml.js';
 import { askQuestionListener, scrollToBottomObserver } from './chatBot/chatEvent.js';
 import { SwitchModel } from "./chatBot/switchModel.js";
-import { canChangeModels } from './lib/canChangeModels.js';
 
 class MessageWidget {
   constructor(position = "bottom-right") {
     this.position = this.getPosition(position);
     this.open = false;
 
-    // this.darkModeListener();
+    const chatbotId = document.getElementById('majicai-chatbot')?.getAttribute('data-chat-bot-id');
+    console.log("Chatbot Id -", chatbotId);
 
     this.switchModel = new SwitchModel();
 
