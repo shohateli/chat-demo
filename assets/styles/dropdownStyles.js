@@ -24,7 +24,7 @@ export const DROPDOWN_STYLES = `
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 45px;
+    height: 40px;
     padding: 0 15px;
     cursor: pointer;
   }
