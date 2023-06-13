@@ -1,5 +1,8 @@
-import { BOT_ICON, CLOSE_ICON, MESSAGE_ICON, getImageFromSvgText, iconStyles } from './assets/icons.js';
-import { injectCSS, styles } from './assets/styles.js';
+import { changeDarkModeListener, turnToDarkMode, turnToLightMode } from './assets/darkModeToggle.js';
+import { CLOSE_ICON, MESSAGE_ICON } from './assets/icons.js';
+import { DARK_MODE_TOGGLE_STYLES } from './assets/styles/darkModeToggleStyles.js';
+import { ICON_STYLES } from './assets/styles/iconStyles.js';
+import { injectCSS, STYLES } from './assets/styles/styles.js';
 import { WIDGET_HTML } from './assets/widgetHtml.js';
 import { askQuestionListener, scrollToBottomObserver } from './chatBot/chatEvent.js';
 import { SwitchModel } from "./chatBot/switchModel.js";
@@ -21,6 +24,7 @@ class MessageWidget {
 
     askQuestionListener();
     scrollToBottomObserver();
+    changeDarkModeListener();
   }
 
   position = "";
@@ -83,11 +87,23 @@ class MessageWidget {
 
   injectStyles() {
     const styleTag = document.createElement("style");
-    styleTag.innerHTML = styles.replace(/^\s+|\n/gm, "");
+    styleTag.innerHTML = STYLES.replace(/^\s+|\n/gm, "");
 
     document.head.appendChild(styleTag);
 
-    injectCSS(iconStyles);
+    injectCSS(ICON_STYLES);
+    injectCSS(DARK_MODE_TOGGLE_STYLES);
+
+    // set dark mode based on system
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const checkbox = document.getElementById('darkmode-toggle');
+    if (darkModeMediaQuery.matches) {
+      checkbox.checked = true;
+      turnToDarkMode();
+    } else {
+      checkbox.checked = false;
+      turnToLightMode();
+    }
   }
 
   toggleOpen() {

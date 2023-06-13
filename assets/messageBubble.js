@@ -3,9 +3,9 @@ import { MESSAGE_ICON, getImageFromSvgText } from "./icons"
 
 export const botMessageBubble = (text, id=`${Date.now()}`) => {
   return `
-    <div class="message-bubble response">
-      <div id="message-bubble-response-icon">
-        <img width="25px" height="25px" src="${getImageFromSvgText(MESSAGE_ICON)}">
+    <div class="message-bubble response ${addDarkClass()}">
+      <div id="message-bubble-response-icon" class="${addDarkClass()}">
+        <img width="70%" height="70%" src="${getImageFromSvgText(MESSAGE_ICON)}">
       </div>
 
       <span id=${id} class="question">
@@ -20,7 +20,7 @@ export const botMessageBubble = (text, id=`${Date.now()}`) => {
 
 export const messageBubble = (text, time="") => {
   return `
-    <div class="message-bubble request">
+    <div class="message-bubble request ${addDarkClass()}">
       <span class="question">
         ${text}
       </span>
@@ -30,3 +30,10 @@ export const messageBubble = (text, time="") => {
     <div style="clear: right;"></div>
   `
 }
+
+export const addDarkClass = () => {
+  const checkbox = document.getElementById('darkmode-toggle');
+  if (checkbox?.checked) return 'dark';
+  return '';
+}
+

@@ -1,6 +1,6 @@
-import { DARK_MODE, LIGHT_MODE } from "./colors";
+import { DARK_MODE, LIGHT_MODE } from "../colors";
 
-export const styles = `
+export const STYLES = `
     .widget__container * {
       box-sizing: border-box;
       font-size: 18px;
@@ -15,6 +15,7 @@ export const styles = `
     .widget__container {
         box-shadow: 0 0 18px 8px rgba(0, 0, 0, 0.1), 0 0 32px 32px rgba(0, 0, 0, 0.08);
         width: 428px;
+        height: 624px;
         overflow: hidden;
         right: -25px;
         bottom: 75px;
@@ -53,24 +54,46 @@ export const styles = `
   .widget__header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: ${LIGHT_MODE.defaultColor};
   }
+  .widget__header__data {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
   #widget__header__icon {
-    background-color: white;
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
+    border: 2px solid ${LIGHT_MODE.backgroundColor};
   }
   .widget__header h3 {
-    color: white;
     margin-top: 2px;
-    margin-left: 10px;
+    margin-left: 11px;
+    color: white;
     font-weight: 600;
     font-size: 16px;
+    line-height: 19px;
   }
 
+  #send-form-container {
+    position: relative;
+    width: 100%;
+    background: ${LIGHT_MODE.backgroundColor};
+    border-top: 1px solid ${LIGHT_MODE.borderColor};
+    height: 115px;
+    padding-top: 15px;
+  }
+  #switch-model-relative-container {
+    height: 1px;
+    position: relative;
+  }
+  #send-form-wrapper {
+    height: 47px;
+  }
   #send-form {
     display: flex;
     flex-direction: row;
@@ -78,31 +101,25 @@ export const styles = `
     align-items: center;
     padding: 0px 20px;
     width: 392px;
-    height: 46px;
     background: ${LIGHT_MODE.inputBackground};
     border: 1px solid ${LIGHT_MODE.inputBorder};
     border-radius: 50px;
     margin: 0 auto 0px;
   }
-  #send-form-container {
-    position: relative;
-    width: 100%;
-    background: ${LIGHT_MODE.backgroundColor};
-    padding-top: 20px;
-    border-top: 1px solid ${LIGHT_MODE.borderColor};
-    display: flex;
-    flex-direction: column;
-  }
   #send-form input {
     border: none;
     width: 284px;
-    height: 30px;
+    height: 46px;
     background: transparent;
     color: ${LIGHT_MODE.inputColor};
     font-size: 14px;
   }
   #send-form input:focus {
     outline: none;
+  }
+  #send-form input::placeholder {
+    color: ${LIGHT_MODE.closePopupColor};
+    opacity: 1;
   }
   .icon-button-container {
     border: none;
@@ -135,15 +152,17 @@ export const styles = `
 
   .message-bubble {
     position: relative;
-    border-radius: 12px;
-    margin: 20px;
+    border-radius: 10px;
     width: 228px;
     min-height: 53px;
+    padding: 18px;
+    margin: 18px 18px 29px 18px;
   }
   .message-bubble.response {
     background-color: ${LIGHT_MODE.responseBackgroundColor};
     color: ${LIGHT_MODE.responseTextColor};
-    padding: 14px 20px 15px 40px;
+    padding-left: 32px;
+    padding-bottom: 19px
   }
   .message-bubble.request {
     background-color: ${LIGHT_MODE.questionBackgroundColor};
@@ -152,8 +171,8 @@ export const styles = `
     float: right;
   }
   #message-bubble-response-icon {
-    height: 51px;
-    width: 51px;
+    height: 44px;
+    width: 44px;
     position: absolute;
     left: -22px;
     top: -22px;
@@ -166,8 +185,9 @@ export const styles = `
   }
   .timestamp {
     position: absolute;
-    bottom: -15px;
+    bottom: -19px;
     font-weight: 500;
+    height: 13px;
     font-size: 11px;
     color: #b4abc2;
   }
@@ -176,13 +196,17 @@ export const styles = `
   .question {
     overflow-wrap: break-word;
     font-size: 14px;
+    line-height: 17px;
+    width: 178px;
+    height: 17px;
   }
 
   .chat {
     background-color: ${LIGHT_MODE.backgroundColor};
-    height: 450px;
+    height: 444px;
     width: 100%;
-    padding: 20px;
+    padding: 18px;
+    padding-right: 0px;
     overflow-y: scroll;
     scroll-behavior: smooth;
     margin: 0;
@@ -218,8 +242,14 @@ export const styles = `
     }
   }
 
+  .powered-by-container {
+    height: 20px;
+    position: absolute;
+    bottom: 17px;
+    width: 100%;
+    margin: 0 auto;
+  }
   .powered-by {
-    height: 46px;
     background-color: ${LIGHT_MODE.backgroundColor};
     display: flex;
     flex-direction: row;
@@ -234,59 +264,57 @@ export const styles = `
     color: #B3ABC2;
   }
 
+  /* dark mode */
+  .button__container.dark {
+    background-color: ${DARK_MODE.defaultColor};
+  }
 
-  @media (prefers-color-scheme: dark) {
-    .button__container {
-      background-color: ${DARK_MODE.defaultColor};
-    }
+  .message-bubble.response.dark {
+    background-color: ${DARK_MODE.responseBackgroundColor};
+    color: ${DARK_MODE.responseTextColor};
+  }
+  .message-bubble.request.dark {
+    background-color: ${DARK_MODE.questionBackgroundColor};
+    color: ${DARK_MODE.questionTextColor};
+  }
+  #message-bubble-response-icon.dark {
+    border: 4px solid ${DARK_MODE.backgroundColor};
+    background-color: ${DARK_MODE.defaultColor};
+  }
 
-    .widget__header {
-      background-color: ${DARK_MODE.defaultColor};
-    }
+  #send-form.dark {
+    background: ${DARK_MODE.inputBackground};
+    border: 1px solid ${DARK_MODE.inputBorder};
+  }
+  #send-form-container.dark {
+    background: ${DARK_MODE.backgroundColor};
+    border-top: 1px solid ${DARK_MODE.borderColor};
+  }
+  #send-form input.dark {
+    color: ${DARK_MODE.inputColor};
+  }
+  #send-form input.dark::placeholder {
+    color: ${DARK_MODE.inputColor};
+    opacity: 1;
+  }
 
-    .message-bubble.response {
-      background-color: ${DARK_MODE.responseBackgroundColor};
-      color: ${DARK_MODE.responseTextColor};
-    }
-    .message-bubble.request {
-      background-color: ${DARK_MODE.questionBackgroundColor};
-      color: ${DARK_MODE.questionTextColor};
-    }
-    #message-bubble-response-icon {
-      border: 4px solid ${DARK_MODE.backgroundColor};
-      background-color: ${DARK_MODE.defaultColor};
-    }
+  .chat.dark {
+    background-color: ${DARK_MODE.backgroundColor};
+  }
 
-    #send-form {
-      background: ${DARK_MODE.inputBackground};
-      border: 1px solid ${DARK_MODE.inputBorder};
-    }
-    #send-form-container {
-      background: ${DARK_MODE.backgroundColor};
-      border-top: 1px solid ${DARK_MODE.borderColor};
-    }
-    #send-form input {
-      color: ${DARK_MODE.inputColor};
-    }
+  .chat.dark::-webkit-scrollbar-track {
+    background-color: ${DARK_MODE.scrollbarBackground};
+  }
+  .chat.dark::-webkit-scrollbar-thumb {
+    background-color: ${DARK_MODE.scrollbarThumb};
+    border: 4px solid ${DARK_MODE.scrollbarBackground};
+  }
 
-    .chat {
-      background-color: ${DARK_MODE.backgroundColor};
-    }
-
-    .chat::-webkit-scrollbar-track {
-      background-color: ${DARK_MODE.scrollbarBackground};
-    }
-    .chat::-webkit-scrollbar-thumb {
-      background-color: ${DARK_MODE.scrollbarThumb};
-      border: 4px solid ${DARK_MODE.scrollbarBackground};
-    }
-
-    .powered-by {
-      background-color: ${DARK_MODE.backgroundColor};
-    }
-    .powered-by span {
-      color: ${DARK_MODE.responseTextColor};
-    }
+  .powered-by.dark {
+    background-color: ${DARK_MODE.backgroundColor};
+  }
+  .powered-by span.dark {
+    color: ${DARK_MODE.responseTextColor};
   }
 
 `;

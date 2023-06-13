@@ -1,98 +1,9 @@
 import { COLORS, DARK_MODE, LIGHT_MODE } from "../assets/colors";
 import { CHECKMARK_ICON, DOWN_ICON, getImageFromSvgText } from "../assets/icons";
-import { injectCSS } from "../assets/styles";
+import { injectCSS } from "../assets/styles/styles";
+import { DROPDOWN_STYLES } from "../assets/styles/dropdownStyles";
 import { toggleBoxIcon } from "./switchModel";
-
-const STYLES = `
-  .dropdown-container {
-    margin-top: 10px;
-    width: 100%;
-  }
-
-  .dropdown {
-    width: 100%;
-    border-radius: 12px;
-  }
-
-  .dropdown-data {
-    width: 100%;
-    color: ${LIGHT_MODE.boxHighlighted};
-
-    display: flex;
-    background-color: ${LIGHT_MODE.dropdownBackground};
-    border-radius: 12px;
-  }
-
-  .dropdown-data.closed {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 45px;
-    padding: 0 20px;
-    cursor: pointer;
-  }
-
-  .dropdown-data.open {
-    flex-direction: column;
-    height: 130px;
-    overflow-y: scroll;
-    padding: 5px 0px;
-  }
-
-  .dropdown-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    color: ${LIGHT_MODE.dropdownTextColor};
-    cursor: pointer;
-  }
-  .dropdown-item.selected {
-    color: ${LIGHT_MODE.dropdownSelectedTextColor};
-  }
-  .dropdown-item h4 {
-    margin: 0px;
-    padding: 0px;
-    font-weight: 400;
-  }
-
-  .dropdown-data::-webkit-scrollbar {
-    background-color: ${LIGHT_MODE.dropdownBackgroundColor};
-    border-radius: 12px;
-    width: 7px;
-  }
-  .dropdown-data::-webkit-scrollbar-thumb {
-    background-color: ${LIGHT_MODE.boxHighlighted};
-    border-radius: 12px;
-    border: 2px solid ${LIGHT_MODE.dropdownBackgroundColor};
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .dropdown-data {
-      color: ${DARK_MODE.boxHighlighted};
-      background-color: ${DARK_MODE.dropdownBackground};
-    }
-
-    .dropdown-item {
-      color: ${DARK_MODE.dropdownTextColor};
-    }
-    .dropdown-item.selected {
-      color: ${DARK_MODE.dropdownSelectedTextColor};
-    }
-
-    .dropdown-data::-webkit-scrollbar {
-      background-color: ${DARK_MODE.dropdownBackgroundColor};
-      border-radius: 12px;
-      width: 7px;
-    }
-    .dropdown-data::-webkit-scrollbar-thumb {
-      background-color: ${DARK_MODE.boxHighlighted};
-      border-radius: 12px;
-      border: 2px solid ${DARK_MODE.dropdownBackgroundColor};
-    }
-  }
-`;
+import { addDarkClass } from "../assets/messageBubble";
 
 class Dropdown {
   constructor(items, containerId, current=null) {
@@ -103,7 +14,7 @@ class Dropdown {
     if (!this.current) this.current = items[0];
 
     this.show();
-    injectCSS(STYLES);
+    injectCSS(DROPDOWN_STYLES);
   }
 
   show() {
@@ -121,9 +32,9 @@ class Dropdown {
 
   html() {
     return `<div class="dropdown">
-      <div class="dropdown-data closed">
+      <div class="dropdown-data closed ${addDarkClass()}">
         <h4>${this.current}</h4>
-        ${DOWN_ICON}
+        ${DOWN_ICON()}
       </div>
     </div>
     `;
@@ -135,10 +46,10 @@ class Dropdown {
     dropdownData.classList.add("open");
 
     const items = this.items.map((item) => {
-      return `<div class="dropdown-item${item === this.current ? ' selected' : ''}">
+      return `<div class="dropdown-item${item === this.current ? ' selected' : ''} ${addDarkClass()}">
         <h4>${item}</h4>
         <span>
-          ${item === this.current ? CHECKMARK_ICON : ''}
+          ${item === this.current ? CHECKMARK_ICON() : ''}
         </span>
       </div>`;
     });
