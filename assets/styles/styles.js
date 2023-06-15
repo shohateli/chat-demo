@@ -332,7 +332,6 @@ export const STYLES = `
     color: ${DARK_MODE.responseTextColor};
   }
 
-
   /* mobile styles */
   @media screen and (max-width: 768px) {
     .widget__container {
@@ -358,6 +357,9 @@ export const STYLES = `
       max-height: calc(100vh - 232px - env(safe-area-inset-bottom));
       flex-grow: 1;
       flex-shrink: 0;
+    }
+    .chat.edge {
+      max-height: calc(100vh - 280px - env(safe-area-inset-bottom));
     }
 
     #send-form {

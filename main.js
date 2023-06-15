@@ -83,6 +83,11 @@ class MessageWidget {
     // Add event listener for close button on mobile
     const closeButtonMobile = document.getElementById("close-button-mobile");
     closeButtonMobile.addEventListener('click', this.toggleOpen.bind(this));
+
+    if (isEdgeBrowser()) {
+      const chat = document.getElementsByClassName("chat")[0];
+      chat.classList.add("edge");
+    }
   }
 
   createWidgetContent() {
@@ -127,6 +132,13 @@ class MessageWidget {
 
 function initializeWidget() {
   return new MessageWidget();
+}
+
+function isEdgeBrowser() {
+  return (
+    window.navigator.userAgent.indexOf('Edge') > -1 ||
+    window.navigator.userAgent.indexOf('EdgA') > -1
+  );
 }
 
 initializeWidget();
