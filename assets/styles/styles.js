@@ -337,7 +337,7 @@ export const STYLES = `
   @media screen and (max-width: 768px) {
     .widget__container {
       width: 100vw;
-      height: 100vh;
+      height: calc(100vh - env(safe-area-inset-bottom));
       position: fixed;
       top: 0px;
       right: 0px;
@@ -345,6 +345,7 @@ export const STYLES = `
       border-radius: 0px;
 
       z-index: 1000;
+      background-color: white;
     }
 
     .chat-container {
@@ -354,8 +355,9 @@ export const STYLES = `
     }
 
     .chat {
-      min-height: 444px;
+      max-height: calc(100vh - 232px - env(safe-area-inset-bottom));
       flex-grow: 1;
+      flex-shrink: 0;
     }
 
     #send-form {
