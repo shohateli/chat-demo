@@ -34,7 +34,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
       </svg>
     </label>
   </div>
-`,k=[".button__container",".widget__header",".message-bubble","#message-bubble-response-icon","#send-form","#send-form input","#send-form-container",".chat",".powered-by",".powered-by span",".send-icon",".box-icon",".box-icon.selected",".close-popup-icon",".checkmark-icon",".down-icon",".switch-model",".switch-model-header h4",".arrow-down",".dropdown-data",".dropdown-item",".dropdown-item.selected"];function B(){const o=document.getElementById("darkmode-toggle");o.addEventListener("change",()=>{o.checked?m():u()});const e=window.matchMedia("(prefers-color-scheme: dark)");e.addEventListener("change",()=>{e.matches?(o.checked=!0,m()):(o.checked=!1,u())})}const m=()=>{k.forEach(o=>{try{const e=document.querySelectorAll(o);Array.from(e).forEach(t=>t.classList.add("dark"))}catch{}})},u=()=>{k.forEach(o=>{try{const e=document.querySelectorAll(o);Array.from(e).forEach(t=>t.classList.remove("dark"))}catch{}})},a="#a16dfd",r={defaultColor:a,backgroundColor:"white",borderColor:"#E8E8E8",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#EDEDEF",responseTextColor:"#5F5968",popupBackgroundColor:"white",closePopupColor:"#B3ABC2",dropdownBackground:"#EDEDEF",dropdownBorder:"none",dropdownSelectedTextColor:a,dropdownTextColor:"#5F5968",boxMuted:"#A599BA",boxHighlighted:a,inputBackground:"#F6F7F9",inputBorder:"#E8E8E8",inputColor:"#5F5968",scrollbarBackground:"#EDEDEF",scrollbarThumb:"#A599BA"},i={defaultColor:a,backgroundColor:"#272727",borderColor:"#454545",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#454545",responseTextColor:"#F4F4F4",popupBackgroundColor:"#383838",closePopupColor:"#8F8F8F",dropdownBackground:"#4A4A4A",dropdownBorder:"1px solid #565656",boxMuted:"#898989",boxHighlighted:"white",dropdownSelectedTextColor:"white",dropdownTextColor:"#C4C4C4",inputBackground:"#454545",inputBorder:"#636363",inputColor:"#C4C4C4",scrollbarBackground:"#4F4F4F",scrollbarThumb:"#8A8592"};window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const T=()=>{document.getElementById("send-form").addEventListener("submit",e=>{e.preventDefault();const t=w(new Date),n=document.getElementById("send-input");if(!n.value)return;const s=document.getElementById("chat");s.innerHTML+=H(n.value,t);let d="...";const l=`${Date.now()}`;s.innerHTML+=v(d),S(n.value).then(h=>{const y=w(new Date),_=document.getElementById(`time${l}`);_.innerHTML=y;const L=document.getElementById(l);L.innerHTML=h}).catch(h=>alert(h)),n.value=""})},S=o=>new Promise((t,n)=>{setTimeout(()=>{t(o)},1e3)}),D=()=>{const o=document.querySelector(".chat"),e=new MutationObserver(I),t={childList:!0};e.observe(o,t)};function I(){chat.scrollTop=chat.scrollHeight}function w(o){var e=o.getHours(),t=o.getMinutes(),n=e>=12?"PM":"AM";e=e%12,e=e||12,t=t<10?"0"+t:t;var s=e+":"+t+" "+n;return s}const v=(o,e=`${Date.now()}`)=>`
+`,k=[".button__container",".widget__header",".message-bubble","#message-bubble-response-icon","#send-form","#send-form input","#send-form-container",".chat",".powered-by",".powered-by span",".send-icon",".box-icon",".box-icon.selected",".close-popup-icon",".checkmark-icon",".down-icon",".switch-model",".switch-model-header h4",".arrow-down",".dropdown-data",".dropdown-item",".dropdown-item.selected"];function B(){const o=document.getElementById("darkmode-toggle");o.addEventListener("change",()=>{o.checked?m():u()});const e=window.matchMedia("(prefers-color-scheme: dark)");e.addEventListener("change",()=>{e.matches?(o.checked=!0,m()):(o.checked=!1,u())})}const m=()=>{k.forEach(o=>{try{const e=document.querySelectorAll(o);Array.from(e).forEach(t=>t.classList.add("dark"))}catch{}})},u=()=>{k.forEach(o=>{try{const e=document.querySelectorAll(o);Array.from(e).forEach(t=>t.classList.remove("dark"))}catch{}})},a="#a16dfd",i={defaultColor:a,backgroundColor:"white",borderColor:"#E8E8E8",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#EDEDEF",responseTextColor:"#5F5968",popupBackgroundColor:"white",closePopupColor:"#B3ABC2",dropdownBackground:"#EDEDEF",dropdownBorder:"none",dropdownSelectedTextColor:a,dropdownTextColor:"#5F5968",boxMuted:"#A599BA",boxHighlighted:a,inputBackground:"#F6F7F9",inputBorder:"#E8E8E8",inputColor:"#5F5968",scrollbarBackground:"#EDEDEF",scrollbarThumb:"#A599BA"},r={defaultColor:a,backgroundColor:"#272727",borderColor:"#454545",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#454545",responseTextColor:"#F4F4F4",popupBackgroundColor:"#383838",closePopupColor:"#8F8F8F",dropdownBackground:"#4A4A4A",dropdownBorder:"1px solid #565656",boxMuted:"#898989",boxHighlighted:"white",dropdownSelectedTextColor:"white",dropdownTextColor:"#C4C4C4",inputBackground:"#454545",inputBorder:"#636363",inputColor:"#C4C4C4",scrollbarBackground:"#4F4F4F",scrollbarThumb:"#8A8592"};window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const T=()=>{document.getElementById("send-form").addEventListener("submit",e=>{e.preventDefault();const t=w(new Date),n=document.getElementById("send-input");if(!n.value)return;const s=document.getElementById("chat");s.innerHTML+=H(n.value,t);let d="...";const l=`${Date.now()}`;s.innerHTML+=v(d),S(n.value).then(h=>{const y=w(new Date),_=document.getElementById(`time${l}`);_.innerHTML=y;const L=document.getElementById(l);L.innerHTML=h}).catch(h=>alert(h)),n.value=""})},S=o=>new Promise((t,n)=>{setTimeout(()=>{t(o)},1e3)}),D=()=>{const o=document.querySelector(".chat"),e=new MutationObserver(I),t={childList:!0};e.observe(o,t)};function I(){chat.scrollTop=chat.scrollHeight}function w(o){var e=o.getHours(),t=o.getMinutes(),n=e>=12?"PM":"AM";e=e%12,e=e||12,t=t<10?"0"+t:t;var s=e+":"+t+" "+n;return s}const v=(o,e=`${Date.now()}`)=>`
     <div class="message-bubble response ${c()}">
       <div id="message-bubble-response-icon" class="${c()}">
         <img width="70%" height="70%" src="${x(f)}">
@@ -98,14 +98,14 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     </path>
     </g>
   </g>
-</svg>`,V=`<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero">
+</svg>`,N=`<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero">
 <g class="close-icon-mobile" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
   <g transform="scale(5.12,5.12)">
   <path d="M40.7832,7.27148c-0.52851,0.01247 -1.03058,0.23367 -1.39648,0.61523l-14.33594,14.33594l-14.33594,-14.33594c-0.37669,-0.38827 -0.89458,-0.60741 -1.43555,-0.60742c-0.81437,0.00019 -1.54731,0.49409 -1.85324,1.24881c-0.30592,0.75472 -0.12373,1.61957 0.46066,2.18673l14.33594,14.33594l-14.33594,14.33594c-0.52247,0.50164 -0.73292,1.24653 -0.55021,1.9474c0.18272,0.70087 0.73005,1.24821 1.43093,1.43093c0.70087,0.18272 1.44577,-0.02774 1.9474,-0.55021l14.33594,-14.33594l14.33594,14.33594c0.50164,0.52247 1.24653,0.73293 1.94741,0.55021c0.70088,-0.18272 1.24821,-0.73005 1.43093,-1.43093c0.18272,-0.70088 -0.02774,-1.44577 -0.55021,-1.94741l-14.33594,-14.33594l14.33594,-14.33594c0.59567,-0.57119 0.77939,-1.44958 0.46256,-2.21161c-0.31683,-0.76204 -1.06915,-1.25125 -1.8942,-1.23175z">
   </path>
   </g>
 </g>
-</svg>`,N=()=>`
+</svg>`,V=()=>`
 <svg class="checkmark-icon ${c()}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="14px" height="14px"><path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"/></svg>
 `,q=()=>`<svg class="down-icon ${c()}" height="12px" width="12px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" transform="rotate(270)" stroke="white"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"></path> </g></svg>`,x=o=>{const e=new Blob([o],{type:"image/svg+xml"});return URL.createObjectURL(e)},P="linear-gradient(180deg,#ffcc89,#d8860b)",R=`
   #darkmode-toggle-label {
@@ -183,26 +183,26 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
   }
 `,G=`
   .send-icon {
-    fill: ${r.boxHighlighted};
+    fill: ${i.boxHighlighted};
   }
 
   .box-icon {
-    fill: ${r.boxMuted};
+    fill: ${i.boxMuted};
   }
   .box-icon.selected {
-    fill: ${r.boxHighlighted};
+    fill: ${i.boxHighlighted};
   }
 
   .close-popup-icon {
-    fill: ${r.closePopupColor}
+    fill: ${i.closePopupColor}
   }
 
   .checkmark-icon {
-    fill: ${r.boxHighlighted};
+    fill: ${i.boxHighlighted};
   }
 
   .down-icon {
-    fill: ${r.responseTextColor}
+    fill: ${i.responseTextColor}
   }
 
   .close-icon-mobile {
@@ -212,26 +212,26 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
 
   /* dark mode stuff */
   .send-icon.dark {
-    fill: ${i.boxHighlighted};
+    fill: ${r.boxHighlighted};
   }
 
   .box-icon.dark {
-    fill: ${i.boxMuted};
+    fill: ${r.boxMuted};
   }
   .box-icon.selected.dark {
-    fill: ${i.boxHighlighted};
+    fill: ${r.boxHighlighted};
   }
 
   .close-popup-icon.dark {
-    fill: ${i.closePopupColor}
+    fill: ${r.closePopupColor}
   }
 
   .checkmark-icon.dark {
-    fill: ${i.boxHighlighted};
+    fill: ${r.boxHighlighted};
   }
 
   .down-icon.dark {
-    fill: ${i.responseTextColor}
+    fill: ${r.responseTextColor}
   }
 `,Z=`
     .widget__container * {
@@ -271,7 +271,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
   }
   .button__container {
       border: none;
-      background-color: ${r.defaultColor};
+      background-color: ${i.defaultColor};
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -290,7 +290,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: ${r.defaultColor};
+    background-color: ${i.defaultColor};
   }
   .widget__header__data {
     display: flex;
@@ -302,7 +302,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     width: 44px;
     height: 44px;
     aspect-ratio: 1/1;
-    border: 2px solid ${r.backgroundColor};
+    border: 2px solid ${i.backgroundColor};
   }
   .widget__header h3 {
     margin-top: 2px;
@@ -330,8 +330,8 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
   #send-form-container {
     position: relative;
     width: 100%;
-    background: ${r.backgroundColor};
-    border-top: 1px solid ${r.borderColor};
+    background: ${i.backgroundColor};
+    border-top: 1px solid ${i.borderColor};
     height: 115px;
     padding-top: 15px;
   }
@@ -349,8 +349,8 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     align-items: center;
     padding: 0px 20px;
     width: 392px;
-    background: ${r.inputBackground};
-    border: 1px solid ${r.inputBorder};
+    background: ${i.inputBackground};
+    border: 1px solid ${i.inputBorder};
     border-radius: 50px;
     margin: 0 auto 0px;
   }
@@ -359,14 +359,14 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     width: 284px;
     height: 46px;
     background: transparent;
-    color: ${r.inputColor};
+    color: ${i.inputColor};
     font-size: 14px;
   }
   #send-form input:focus {
     outline: none;
   }
   #send-form input::placeholder {
-    color: ${r.closePopupColor};
+    color: ${i.closePopupColor};
     opacity: 1;
   }
   .icon-button-container {
@@ -407,14 +407,14 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     margin: 18px 18px 29px 18px;
   }
   .message-bubble.response {
-    background-color: ${r.responseBackgroundColor};
-    color: ${r.responseTextColor};
+    background-color: ${i.responseBackgroundColor};
+    color: ${i.responseTextColor};
     padding-left: 32px;
     padding-bottom: 19px
   }
   .message-bubble.request {
-    background-color: ${r.questionBackgroundColor};
-    color: ${r.questionTextColor};
+    background-color: ${i.questionBackgroundColor};
+    color: ${i.questionTextColor};
     padding: 14px 20px 15px;
     float: right;
   }
@@ -424,11 +424,11 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     position: absolute;
     left: -22px;
     top: -22px;
-    border: 4px solid ${r.backgroundColor};
+    border: 4px solid ${i.backgroundColor};
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${r.defaultColor};
+    background-color: ${i.defaultColor};
     border-radius: 50%;
   }
   .timestamp {
@@ -450,7 +450,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
   }
 
   .chat {
-    background-color: ${r.backgroundColor};
+    background-color: ${i.backgroundColor};
     height: 444px;
     width: 100%;
     padding: 18px;
@@ -464,12 +464,12 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     width: 15px;
   }
   .chat::-webkit-scrollbar-track {
-    background-color: ${r.scrollbarBackground};
+    background-color: ${i.scrollbarBackground};
   }
   .chat::-webkit-scrollbar-thumb {
-    background-color: ${r.scrollbarThumb};
+    background-color: ${i.scrollbarThumb};
     border-radius: 10px;
-    border: 4px solid ${r.scrollbarBackground};
+    border: 4px solid ${i.scrollbarBackground};
   }
 
   button {
@@ -498,7 +498,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     margin: 0 auto;
   }
   .powered-by {
-    background-color: ${r.backgroundColor};
+    background-color: ${i.backgroundColor};
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -506,7 +506,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
   }
   .powered-by span {
     font-size: 12px;
-    color: ${r.responseTextColor};
+    color: ${i.responseTextColor};
   }
   #grey-text {
     color: #B3ABC2;
@@ -514,57 +514,56 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
 
   /* dark mode */
   .button__container.dark {
-    background-color: ${i.defaultColor};
+    background-color: ${r.defaultColor};
   }
 
   .message-bubble.response.dark {
-    background-color: ${i.responseBackgroundColor};
-    color: ${i.responseTextColor};
+    background-color: ${r.responseBackgroundColor};
+    color: ${r.responseTextColor};
   }
   .message-bubble.request.dark {
-    background-color: ${i.questionBackgroundColor};
-    color: ${i.questionTextColor};
+    background-color: ${r.questionBackgroundColor};
+    color: ${r.questionTextColor};
   }
   #message-bubble-response-icon.dark {
-    border: 4px solid ${i.backgroundColor};
-    background-color: ${i.defaultColor};
+    border: 4px solid ${r.backgroundColor};
+    background-color: ${r.defaultColor};
   }
 
   #send-form.dark {
-    background: ${i.inputBackground};
-    border: 1px solid ${i.inputBorder};
+    background: ${r.inputBackground};
+    border: 1px solid ${r.inputBorder};
   }
   #send-form-container.dark {
-    background: ${i.backgroundColor};
-    border-top: 1px solid ${i.borderColor};
+    background: ${r.backgroundColor};
+    border-top: 1px solid ${r.borderColor};
   }
   #send-form input.dark {
-    color: ${i.inputColor};
+    color: ${r.inputColor};
   }
   #send-form input.dark::placeholder {
-    color: ${i.inputColor};
+    color: ${r.inputColor};
     opacity: 1;
   }
 
   .chat.dark {
-    background-color: ${i.backgroundColor};
+    background-color: ${r.backgroundColor};
   }
 
   .chat.dark::-webkit-scrollbar-track {
-    background-color: ${i.scrollbarBackground};
+    background-color: ${r.scrollbarBackground};
   }
   .chat.dark::-webkit-scrollbar-thumb {
-    background-color: ${i.scrollbarThumb};
-    border: 4px solid ${i.scrollbarBackground};
+    background-color: ${r.scrollbarThumb};
+    border: 4px solid ${r.scrollbarBackground};
   }
 
   .powered-by.dark {
-    background-color: ${i.backgroundColor};
+    background-color: ${r.backgroundColor};
   }
   .powered-by span.dark {
-    color: ${i.responseTextColor};
+    color: ${r.responseTextColor};
   }
-
 
   /* mobile styles */
   @media screen and (max-width: 768px) {
@@ -592,6 +591,9 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
       flex-grow: 1;
       flex-shrink: 0;
     }
+    .chat.edge {
+      max-height: calc(100vh - 280px - env(safe-area-inset-bottom));
+    }
 
     #send-form {
       width: 90%;
@@ -617,7 +619,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
 
     <div class="widget__header__toggles">
       ${E}
-      <div class="icon__container" id="close-button-mobile">${V}</div>
+      <div class="icon__container" id="close-button-mobile">${N}</div>
     </div>
   </header>
 
@@ -675,7 +677,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     margin: 0 auto;
     border-radius: 12px;
     padding: 18px 15px;
-    background-color: ${r.popupBackgroundColor};
+    background-color: ${i.popupBackgroundColor};
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
     display: flex;
@@ -695,7 +697,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     margin: 0px;
     padding: 0px;
     margin-left: 10px;
-    color: ${r.responseTextColor};
+    color: ${i.responseTextColor};
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
@@ -713,7 +715,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 15px solid ${r.popupBackgroundColor};
+    border-top: 15px solid ${i.popupBackgroundColor};
   }
 
   @keyframes scale-up-bottom{
@@ -730,15 +732,15 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
 
   /* dark mode styles */
   .switch-model.dark {
-    background-color: ${i.popupBackgroundColor};
+    background-color: ${r.popupBackgroundColor};
   }
 
   .switch-model-header h4.dark {
-    color: ${i.responseTextColor};
+    color: ${r.responseTextColor};
   }
 
   .arrow-down.dark {
-    border-top: 15px solid ${i.popupBackgroundColor};
+    border-top: 15px solid ${r.popupBackgroundColor};
   }
 `,K=`
   .dropdown-container {
@@ -753,10 +755,10 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
 
   .dropdown-data {
     width: 100%;
-    color: ${r.boxHighlighted};
+    color: ${i.boxHighlighted};
 
     display: flex;
-    background-color: ${r.dropdownBackground};
+    background-color: ${i.dropdownBackground};
     border-radius: 12px;
   }
 
@@ -781,11 +783,11 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     justify-content: space-between;
     margin: 6px 0px;
     height: 15px;
-    color: ${r.dropdownTextColor};
+    color: ${i.dropdownTextColor};
     cursor: pointer;
   }
   .dropdown-item.selected {
-    color: ${r.dropdownSelectedTextColor};
+    color: ${i.dropdownSelectedTextColor};
   }
 
   .dropdown-data h4 {
@@ -804,15 +806,15 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
 
   /* dark mode styles */
   .dropdown-data.dark {
-    color: ${i.boxHighlighted};
-    background-color: ${i.dropdownBackground};
+    color: ${r.boxHighlighted};
+    background-color: ${r.dropdownBackground};
   }
 
   .dropdown-item.dark {
-    color: ${i.dropdownTextColor};
+    color: ${r.dropdownTextColor};
   }
   .dropdown-item.selected.dark {
-    color: ${i.dropdownSelectedTextColor};
+    color: ${r.dropdownSelectedTextColor};
   }
 `;class Y{constructor(e,t,n=null){this.items=e,this.current=n,this.container=document.getElementById(t),this.current||(this.current=e[0]),this.show(),g(K)}show(){const e=document.createElement("div");e.innerHTML=this.html(),e.classList.add("dropdown-container"),e.addEventListener("click",t=>{this.justChanged?this.justChanged=!1:this.expand()}),this.container.appendChild(e)}html(){return`<div class="dropdown">
       <div class="dropdown-data closed ${c()}">
@@ -823,7 +825,7 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
     `}expand(){const e=document.getElementsByClassName("dropdown-data")[0];e.classList.remove("closed"),e.classList.add("open");const t=this.items.map(d=>`<div class="dropdown-item${d===this.current?" selected":""} ${c()}">
         <h4>${d}</h4>
         <span>
-          ${d===this.current?N():""}
+          ${d===this.current?V():""}
         </span>
       </div>`);e.innerHTML=t.join(""),document.getElementsByClassName("switch-model-container")[0].classList.add("expand"),document.querySelectorAll(".dropdown-item").forEach(d=>{d.addEventListener("click",l=>{const h=d.querySelector("h4").textContent;this.current=h,this.close()})})}close(){document.getElementsByClassName("switch-model-container")[0].classList.remove("expand");const t=document.getElementsByClassName("dropdown-container")[0];this.container.removeChild(t),this.justChanged=!0,this.show(),document.getElementsByClassName("switch-model-container")[0].classList.remove("active"),b("close")}}const C=["Faster but less accurate 3.5","Slower but more accurate 3.5","Fast but less accurate 3.5"],U=`<div class="switch-model" id="switch-model">
   <div class="switch-model-header">
@@ -832,4 +834,4 @@ var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configura
   </div>
 </div>
 <div class="arrow-down"/>
-`;class Q{constructor(){this.switchModelContainer=document.createElement("div"),this.switchModelContainer.innerHTML=U,this.switchModelContainer.classList.add("switch-model-container"),this.showSwitchModel=!1,this.current=C[0]}addSwitchModel(){document.getElementById("switch-model-relative-container").prepend(this.switchModelContainer),new Y(C,"switch-model",this.current),g(X)}setUpListeners(){this.addSwitchModel();const e=document.getElementById("box-button"),t=document.getElementById("close-switch-model");e.addEventListener("click",n=>this.toggleShowSwitchModel()),t.addEventListener("click",n=>this.toggleShowSwitchModel(!0))}toggleShowSwitchModel(e=!1){this.showSwitchModel=!this.showSwitchModel;const t=document.getElementsByClassName("switch-model-container")[0];this.showSwitchModel&&!e||!t.classList.contains("active")?(t.classList.add("active"),b("open")):(t.classList.remove("active"),b("close"))}}function b(o="close"){const e=document.getElementsByClassName("box-icon");Array.from(e).forEach(t=>{o==="open"?t.classList.add("selected"):t.classList.remove("selected")})}class J{constructor(e="bottom-right"){p(this,"position","");p(this,"open",!1);p(this,"widgetContent",null);var n;this.position=this.getPosition(e),this.open=!1;const t=(n=document.getElementById("majicai-chatbot"))==null?void 0:n.getAttribute("data-chat-bot-id");console.log("Chatbot Id -",t),this.switchModel=new Q,this.initialize(),this.injectStyles(),this.switchModel.setUpListeners(),T(),D(),B()}getPosition(e){const[t,n]=e.split("-");return{[t]:"30px",[n]:"30px"}}async initialize(){const e=document.createElement("div");e.style.position="fixed",Object.keys(this.position).forEach(l=>e.style[l]=this.position[l]),document.body.appendChild(e);const t=document.createElement("button");t.classList.add("button__container");const n=document.createElement("span");n.innerHTML=f,n.classList.add("widget__icon"),this.widgetIcon=n;const s=document.createElement("span");s.innerHTML=O,s.classList.add("widget__icon","widget__hidden"),this.closeIcon=s,t.appendChild(this.widgetIcon),t.appendChild(this.closeIcon),t.addEventListener("click",this.toggleOpen.bind(this)),this.widgetContainer=document.createElement("div"),this.widgetContainer.classList.add("widget__hidden","widget__container"),this.createWidgetContent(),e.appendChild(this.widgetContainer),e.appendChild(t),document.getElementById("close-button-mobile").addEventListener("click",this.toggleOpen.bind(this))}createWidgetContent(){this.widgetContainer.innerHTML=W}injectStyles(){const e=document.createElement("style");e.innerHTML=Z.replace(/^\s+|\n/gm,""),document.head.appendChild(e),g(G),g(R);const t=window.matchMedia("(prefers-color-scheme: dark)"),n=document.getElementById("darkmode-toggle");t.matches?(n.checked=!0,m()):(n.checked=!1,u())}toggleOpen(){this.open=!this.open,this.open?(this.widgetIcon.classList.add("widget__hidden"),this.closeIcon.classList.remove("widget__hidden"),this.widgetContainer.classList.remove("widget__hidden")):(this.widgetIcon.classList.remove("widget__hidden"),this.closeIcon.classList.add("widget__hidden"),this.widgetContainer.classList.add("widget__hidden"))}}function ee(){return new J}ee();
+`;class Q{constructor(){this.switchModelContainer=document.createElement("div"),this.switchModelContainer.innerHTML=U,this.switchModelContainer.classList.add("switch-model-container"),this.showSwitchModel=!1,this.current=C[0]}addSwitchModel(){document.getElementById("switch-model-relative-container").prepend(this.switchModelContainer),new Y(C,"switch-model",this.current),g(X)}setUpListeners(){this.addSwitchModel();const e=document.getElementById("box-button"),t=document.getElementById("close-switch-model");e.addEventListener("click",n=>this.toggleShowSwitchModel()),t.addEventListener("click",n=>this.toggleShowSwitchModel(!0))}toggleShowSwitchModel(e=!1){this.showSwitchModel=!this.showSwitchModel;const t=document.getElementsByClassName("switch-model-container")[0];this.showSwitchModel&&!e||!t.classList.contains("active")?(t.classList.add("active"),b("open")):(t.classList.remove("active"),b("close"))}}function b(o="close"){const e=document.getElementsByClassName("box-icon");Array.from(e).forEach(t=>{o==="open"?t.classList.add("selected"):t.classList.remove("selected")})}class J{constructor(e="bottom-right"){p(this,"position","");p(this,"open",!1);p(this,"widgetContent",null);var n;this.position=this.getPosition(e),this.open=!1;const t=(n=document.getElementById("majicai-chatbot"))==null?void 0:n.getAttribute("data-chat-bot-id");console.log("Chatbot Id -",t),this.switchModel=new Q,this.initialize(),this.injectStyles(),this.switchModel.setUpListeners(),T(),D(),B()}getPosition(e){const[t,n]=e.split("-");return{[t]:"30px",[n]:"30px"}}async initialize(){const e=document.createElement("div");e.style.position="fixed",Object.keys(this.position).forEach(l=>e.style[l]=this.position[l]),document.body.appendChild(e);const t=document.createElement("button");t.classList.add("button__container");const n=document.createElement("span");n.innerHTML=f,n.classList.add("widget__icon"),this.widgetIcon=n;const s=document.createElement("span");s.innerHTML=O,s.classList.add("widget__icon","widget__hidden"),this.closeIcon=s,t.appendChild(this.widgetIcon),t.appendChild(this.closeIcon),t.addEventListener("click",this.toggleOpen.bind(this)),this.widgetContainer=document.createElement("div"),this.widgetContainer.classList.add("widget__hidden","widget__container"),this.createWidgetContent(),e.appendChild(this.widgetContainer),e.appendChild(t),document.getElementById("close-button-mobile").addEventListener("click",this.toggleOpen.bind(this)),te()&&document.getElementsByClassName("chat")[0].classList.add("edge")}createWidgetContent(){this.widgetContainer.innerHTML=W}injectStyles(){const e=document.createElement("style");e.innerHTML=Z.replace(/^\s+|\n/gm,""),document.head.appendChild(e),g(G),g(R);const t=window.matchMedia("(prefers-color-scheme: dark)"),n=document.getElementById("darkmode-toggle");t.matches?(n.checked=!0,m()):(n.checked=!1,u())}toggleOpen(){this.open=!this.open,this.open?(this.widgetIcon.classList.add("widget__hidden"),this.closeIcon.classList.remove("widget__hidden"),this.widgetContainer.classList.remove("widget__hidden")):(this.widgetIcon.classList.remove("widget__hidden"),this.closeIcon.classList.add("widget__hidden"),this.widgetContainer.classList.add("widget__hidden"))}}function ee(){return new J}function te(){return window.navigator.userAgent.indexOf("Edge")>-1||window.navigator.userAgent.indexOf("EdgA")>-1}ee();
