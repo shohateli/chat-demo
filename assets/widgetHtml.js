@@ -1,7 +1,7 @@
 import { canChangeModels } from "../lib/canChangeModels";
 import { LIGHT_MODE, DARK_MODE, COLORS } from "./colors";
 import { DARK_MODE_TOGGLE_HTML } from "./darkModeToggle";
-import { BOT_ICON, getImageFromSvgText, BOX_ICON, SEND_ICON, MESSAGE_ICON } from "./icons";
+import { BOT_ICON, getImageFromSvgText, BOX_ICON, SEND_ICON, MESSAGE_ICON, CLOSE_POPUP_ICON, CLOSE_ICON_MOBILE } from "./icons";
 import { botMessageBubble } from "./messageBubble";
 
 export const WIDGET_HTML = `
@@ -11,10 +11,14 @@ export const WIDGET_HTML = `
       <span class="button__container" id="widget__header__icon">
         <img width="70%" height="70%" src="${getImageFromSvgText(MESSAGE_ICON)}">
       </span>
+
       <h3>Majic Chatbot</h3>
     </div>
 
-    ${DARK_MODE_TOGGLE_HTML}
+    <div class="widget__header__toggles">
+      ${DARK_MODE_TOGGLE_HTML}
+      <div class="icon__container" id="close-button-mobile">${CLOSE_ICON_MOBILE}</div>
+    </div>
   </header>
 
   <div class="chat" id="chat">

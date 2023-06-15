@@ -68,6 +68,7 @@ export const STYLES = `
   #widget__header__icon {
     width: 44px;
     height: 44px;
+    aspect-ratio: 1/1;
     border: 2px solid ${LIGHT_MODE.backgroundColor};
   }
   .widget__header h3 {
@@ -77,6 +78,20 @@ export const STYLES = `
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
+  }
+  .widget__header__toggles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #close-button-mobile {
+    margin-left: 20px;
+  }
+
+  .icon__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #send-form-container {
@@ -317,6 +332,43 @@ export const STYLES = `
     color: ${DARK_MODE.responseTextColor};
   }
 
+
+  /* mobile styles */
+  @media screen and (max-width: 768px) {
+    .widget__container {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      transition: max-height .2s ease;
+      border-radius: 0px;
+
+      z-index: 1000;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .chat {
+      min-height: 444px;
+      flex-grow: 1;
+    }
+
+    #send-form {
+      width: 90%;
+    }
+    #send-form input {
+      width: 70%;
+    }
+
+    .message-bubble {
+      max-width: 70vw;
+    }
+  }
 `;
 
 export const injectCSS = css => {

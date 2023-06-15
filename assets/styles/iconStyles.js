@@ -24,6 +24,10 @@ export const ICON_STYLES = `
     fill: ${LIGHT_MODE.responseTextColor}
   }
 
+  .close-icon-mobile {
+    fill: white;
+  }
+
 
   /* dark mode stuff */
   .send-icon.dark {

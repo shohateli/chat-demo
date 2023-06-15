@@ -79,6 +79,10 @@ class MessageWidget {
     // Append the widget's content and the button to the container
     container.appendChild(this.widgetContainer);
     container.appendChild(buttonContainer);
+
+    // Add event listener for close button on mobile
+    const closeButtonMobile = document.getElementById("close-button-mobile");
+    closeButtonMobile.addEventListener('click', this.toggleOpen.bind(this));
   }
 
   createWidgetContent() {

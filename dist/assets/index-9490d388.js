@@ -1,4 +1,4 @@
-var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configurable:!0,writable:!0,value:o}):t[e]=o;var h=(t,e,o)=>($(t,typeof e!="symbol"?e+"":e,o),o);(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))n(s);new MutationObserver(s=>{for(const d of s)if(d.type==="childList")for(const c of d.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&n(c)}).observe(document,{childList:!0,subtree:!0});function o(s){const d={};return s.integrity&&(d.integrity=s.integrity),s.referrerPolicy&&(d.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?d.credentials="include":s.crossOrigin==="anonymous"?d.credentials="omit":d.credentials="same-origin",d}function n(s){if(s.ep)return;s.ep=!0;const d=o(s);fetch(s.href,d)}})();const E=`
+var M=Object.defineProperty;var $=(o,e,t)=>e in o?M(o,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):o[e]=t;var h=(o,e,t)=>($(o,typeof e!="symbol"?e+"":e,t),t);(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))n(s);new MutationObserver(s=>{for(const d of s)if(d.type==="childList")for(const l of d.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&n(l)}).observe(document,{childList:!0,subtree:!0});function t(s){const d={};return s.integrity&&(d.integrity=s.integrity),s.referrerPolicy&&(d.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?d.credentials="include":s.crossOrigin==="anonymous"?d.credentials="omit":d.credentials="same-origin",d}function n(s){if(s.ep)return;s.ep=!0;const d=t(s);fetch(s.href,d)}})();const E=`
   <div class="darkmode-toggle-container">
     <input type="checkbox" id="darkmode-toggle"/>
     <label for="darkmode-toggle" id="darkmode-toggle-label">
@@ -34,29 +34,29 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
       </svg>
     </label>
   </div>
-`,k=[".button__container",".widget__header",".message-bubble","#message-bubble-response-icon","#send-form","#send-form input","#send-form-container",".chat",".powered-by",".powered-by span",".send-icon",".box-icon",".box-icon.selected",".close-popup-icon",".checkmark-icon",".down-icon",".switch-model",".switch-model-header h4",".arrow-down",".dropdown-data",".dropdown-item",".dropdown-item.selected"];function B(){const t=document.getElementById("darkmode-toggle");t.addEventListener("change",()=>{t.checked?u():m()});const e=window.matchMedia("(prefers-color-scheme: dark)");e.addEventListener("change",()=>{e.matches?(t.checked=!0,u()):(t.checked=!1,m())})}const u=()=>{k.forEach(t=>{try{const e=document.querySelectorAll(t);Array.from(e).forEach(o=>o.classList.add("dark"))}catch{}})},m=()=>{k.forEach(t=>{try{const e=document.querySelectorAll(t);Array.from(e).forEach(o=>o.classList.remove("dark"))}catch{}})},a="#a16dfd",r={defaultColor:a,backgroundColor:"white",borderColor:"#E8E8E8",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#EDEDEF",responseTextColor:"#5F5968",popupBackgroundColor:"white",closePopupColor:"#B3ABC2",dropdownBackground:"#EDEDEF",dropdownBorder:"none",dropdownSelectedTextColor:a,dropdownTextColor:"#5F5968",boxMuted:"#A599BA",boxHighlighted:a,inputBackground:"#F6F7F9",inputBorder:"#E8E8E8",inputColor:"#5F5968",scrollbarBackground:"#EDEDEF",scrollbarThumb:"#A599BA"},i={defaultColor:a,backgroundColor:"#272727",borderColor:"#454545",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#454545",responseTextColor:"#F4F4F4",popupBackgroundColor:"#383838",closePopupColor:"#8F8F8F",dropdownBackground:"#4A4A4A",dropdownBorder:"1px solid #565656",boxMuted:"#898989",boxHighlighted:"white",dropdownSelectedTextColor:"white",dropdownTextColor:"#C4C4C4",inputBackground:"#454545",inputBorder:"#636363",inputColor:"#C4C4C4",scrollbarBackground:"#4F4F4F",scrollbarThumb:"#8A8592"};window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const T=()=>{document.getElementById("send-form").addEventListener("submit",e=>{e.preventDefault();const o=w(new Date),n=document.getElementById("send-input");if(!n.value)return;const s=document.getElementById("chat");s.innerHTML+=I(n.value,o);let d="...";const c=`${Date.now()}`;s.innerHTML+=v(d),D(n.value).then(p=>{const y=w(new Date),L=document.getElementById(`time${c}`);L.innerHTML=y;const _=document.getElementById(c);_.innerHTML=p}).catch(p=>alert(p)),n.value=""})},D=t=>new Promise((o,n)=>{setTimeout(()=>{o(t)},1e3)}),S=()=>{const t=document.querySelector(".chat"),e=new MutationObserver(H),o={childList:!0};e.observe(t,o)};function H(){chat.scrollTop=chat.scrollHeight}function w(t){var e=t.getHours(),o=t.getMinutes(),n=e>=12?"PM":"AM";e=e%12,e=e||12,o=o<10?"0"+o:o;var s=e+":"+o+" "+n;return s}const v=(t,e=`${Date.now()}`)=>`
-    <div class="message-bubble response ${l()}">
-      <div id="message-bubble-response-icon" class="${l()}">
+`,k=[".button__container",".widget__header",".message-bubble","#message-bubble-response-icon","#send-form","#send-form input","#send-form-container",".chat",".powered-by",".powered-by span",".send-icon",".box-icon",".box-icon.selected",".close-popup-icon",".checkmark-icon",".down-icon",".switch-model",".switch-model-header h4",".arrow-down",".dropdown-data",".dropdown-item",".dropdown-item.selected"];function B(){const o=document.getElementById("darkmode-toggle");o.addEventListener("change",()=>{o.checked?m():u()});const e=window.matchMedia("(prefers-color-scheme: dark)");e.addEventListener("change",()=>{e.matches?(o.checked=!0,m()):(o.checked=!1,u())})}const m=()=>{k.forEach(o=>{try{const e=document.querySelectorAll(o);Array.from(e).forEach(t=>t.classList.add("dark"))}catch{}})},u=()=>{k.forEach(o=>{try{const e=document.querySelectorAll(o);Array.from(e).forEach(t=>t.classList.remove("dark"))}catch{}})},a="#a16dfd",r={defaultColor:a,backgroundColor:"white",borderColor:"#E8E8E8",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#EDEDEF",responseTextColor:"#5F5968",popupBackgroundColor:"white",closePopupColor:"#B3ABC2",dropdownBackground:"#EDEDEF",dropdownBorder:"none",dropdownSelectedTextColor:a,dropdownTextColor:"#5F5968",boxMuted:"#A599BA",boxHighlighted:a,inputBackground:"#F6F7F9",inputBorder:"#E8E8E8",inputColor:"#5F5968",scrollbarBackground:"#EDEDEF",scrollbarThumb:"#A599BA"},i={defaultColor:a,backgroundColor:"#272727",borderColor:"#454545",questionBackgroundColor:a,questionTextColor:"white",responseBackgroundColor:"#454545",responseTextColor:"#F4F4F4",popupBackgroundColor:"#383838",closePopupColor:"#8F8F8F",dropdownBackground:"#4A4A4A",dropdownBorder:"1px solid #565656",boxMuted:"#898989",boxHighlighted:"white",dropdownSelectedTextColor:"white",dropdownTextColor:"#C4C4C4",inputBackground:"#454545",inputBorder:"#636363",inputColor:"#C4C4C4",scrollbarBackground:"#4F4F4F",scrollbarThumb:"#8A8592"};window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;const T=()=>{document.getElementById("send-form").addEventListener("submit",e=>{e.preventDefault();const t=w(new Date),n=document.getElementById("send-input");if(!n.value)return;const s=document.getElementById("chat");s.innerHTML+=H(n.value,t);let d="...";const l=`${Date.now()}`;s.innerHTML+=v(d),S(n.value).then(p=>{const y=w(new Date),_=document.getElementById(`time${l}`);_.innerHTML=y;const L=document.getElementById(l);L.innerHTML=p}).catch(p=>alert(p)),n.value=""})},S=o=>new Promise((t,n)=>{setTimeout(()=>{t(o)},1e3)}),D=()=>{const o=document.querySelector(".chat"),e=new MutationObserver(I),t={childList:!0};e.observe(o,t)};function I(){chat.scrollTop=chat.scrollHeight}function w(o){var e=o.getHours(),t=o.getMinutes(),n=e>=12?"PM":"AM";e=e%12,e=e||12,t=t<10?"0"+t:t;var s=e+":"+t+" "+n;return s}const v=(o,e=`${Date.now()}`)=>`
+    <div class="message-bubble response ${c()}">
+      <div id="message-bubble-response-icon" class="${c()}">
         <img width="70%" height="70%" src="${x(f)}">
       </div>
 
       <span id=${e} class="question">
-        ${t}
+        ${o}
       </span>
 
       <span class="timestamp left" id="time${e}">
           ${e==="start"?w(new Date):""}
       </span>
-    </div>`,I=(t,e="")=>`
-    <div class="message-bubble request ${l()}">
+    </div>`,H=(o,e="")=>`
+    <div class="message-bubble request ${c()}">
       <span class="question">
-        ${t}
+        ${o}
       </span>
 
       <span class="timestamp right">${e}</span>
     </div>
     <div style="clear: right;"></div>
-  `,l=()=>{const t=document.getElementById("darkmode-toggle");return t!=null&&t.checked?"dark":""},f=`<svg width="32" height="32" viewBox="0 0 330 369" fill="none" xmlns="http://www.w3.org/2000/svg">
+  `,c=()=>{const o=document.getElementById("darkmode-toggle");return o!=null&&o.checked?"dark":""},f=`<svg width="32" height="32" viewBox="0 0 330 369" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M77 369L114.5 289H235L77 369Z" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M30 136H20C8.95431 136 0 144.954 0 156V194C0 205.046 8.9543 214 20 214H30V136Z" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M300 214L310 214C321.046 214 330 205.046 330 194L330 156C330 144.954 321.046 136 310 136L300 136L300 214Z" fill="white"/>
@@ -66,9 +66,9 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
 <circle cx="219.5" cy="178.5" r="18.5" fill="white"/>
 <circle cx="165" cy="20" r="20" fill="white"/>
 <rect x="156" y="31" width="17" height="32" fill="white"/>
-</svg>`,A=`
+</svg>`,O=`
   <svg fill="white" height="25" width="25" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" transform="rotate(270)" stroke="white"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"></path> </g></svg>
-`,O=`<svg width="32" height="32" viewBox="0 0 330 369" fill="none" xmlns="http://www.w3.org/2000/svg">
+`,A=`<svg width="32" height="32" viewBox="0 0 330 369" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M77 369L114.5 289H235L77 369Z" fill="#A06DFD"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M30 136H20C8.95431 136 0 144.954 0 156V194C0 205.046 8.9543 214 20 214H30V136Z" fill="#A06DFD"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M300 214L310 214C321.046 214 330 205.046 330 194L330 156C330 144.954 321.046 136 310 136L300 136L300 214Z" fill="#A06DFD"/>
@@ -78,7 +78,7 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
 <circle cx="219.5" cy="178.5" r="18.5" fill="#A06DFD"/>
 <circle cx="165" cy="20" r="20" fill="#A06DFD"/>
 <rect x="156" y="31" width="17" height="32" fill="#A06DFD"/>
-</svg>`,F=`<svg class="send-icon" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 495.003 495.003" xml:space="preserve">
+</svg>`,z=`<svg class="send-icon" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 495.003 495.003" xml:space="preserve">
   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
   <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
   <g id="SVGRepo_iconCarrier">
@@ -91,16 +91,23 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
 <path class="box-icon" d="M17.0005 4.19014C17.0266 4.17598 17.0483 4.15572 17.0634 4.13137C17.0784 4.10701 17.0864 4.07942 17.0864 4.05133C17.0864 4.02325 17.0784 3.99565 17.0634 3.9713C17.0483 3.94695 17.0266 3.92668 17.0005 3.91253L10.3916 0.347434C9.96869 0.119853 9.48859 0 8.99981 0C8.51103 0 8.03093 0.119853 7.60806 0.347434L1.00041 3.91253C0.974284 3.92668 0.952608 3.94695 0.937543 3.9713C0.922478 3.99565 0.914551 4.02325 0.914551 4.05133C0.914551 4.07942 0.922478 4.10701 0.937543 4.13137C0.952608 4.15572 0.974284 4.17598 1.00041 4.19014L8.91349 8.51212C8.94011 8.52668 8.97043 8.53436 9.00132 8.53436C9.03222 8.53436 9.06254 8.52668 9.08916 8.51212L17.0005 4.19014Z" />
 <path class="box-icon" d="M0.259619 5.28325C0.233226 5.2691 0.203276 5.26167 0.172799 5.26172C0.142323 5.26176 0.112399 5.26928 0.0860545 5.28351C0.0597101 5.29774 0.0378793 5.31817 0.0227692 5.34274C0.00765922 5.36732 -0.000194053 5.39516 3.64236e-06 5.42346V12.4094C0.00065688 12.7461 0.096221 13.0767 0.277192 13.3684C0.458163 13.6602 0.718234 13.9028 1.03154 14.0723L8.04808 17.9784C8.07438 17.9925 8.10421 18 8.13457 18C8.16494 18 8.19478 17.9926 8.22108 17.9785C8.24739 17.9644 8.26924 17.9441 8.28444 17.9197C8.29965 17.8953 8.30767 17.8676 8.3077 17.8394V9.7342C8.30767 9.70602 8.29965 9.67834 8.28446 9.65394C8.26927 9.62954 8.24744 9.60928 8.22116 9.59519L0.259619 5.28325Z" />
 <path class="box-icon" d="M9.69238 9.76218V17.8373C9.69241 17.8655 9.70043 17.8932 9.71564 17.9176C9.73084 17.942 9.75269 17.9622 9.779 17.9763C9.8053 17.9904 9.83514 17.9978 9.8655 17.9978C9.89587 17.9978 9.9257 17.9904 9.952 17.9763L16.9681 14.0701C17.2812 13.9009 17.5411 13.6586 17.7222 13.3672C17.9032 13.0759 17.999 12.7456 18.0001 12.4093V5.42332C18 5.39516 17.9919 5.36752 17.9767 5.34317C17.9614 5.31882 17.9396 5.29861 17.9133 5.28457C17.887 5.27053 17.8572 5.26316 17.8268 5.26318C17.7965 5.26321 17.7667 5.27063 17.7405 5.28471L9.77892 9.62357C9.7527 9.63763 9.73091 9.65783 9.71572 9.68215C9.70054 9.70647 9.69249 9.73406 9.69238 9.76218Z" />
-</svg>`,z=`<svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero">
+</svg>`,F=`<svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero">
   <g class="close-popup-icon" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
     <g transform="scale(5.12,5.12)">
     <path d="M40.7832,7.27148c-0.52851,0.01247 -1.03058,0.23367 -1.39648,0.61523l-14.33594,14.33594l-14.33594,-14.33594c-0.37669,-0.38827 -0.89458,-0.60741 -1.43555,-0.60742c-0.81437,0.00019 -1.54731,0.49409 -1.85324,1.24881c-0.30592,0.75472 -0.12373,1.61957 0.46066,2.18673l14.33594,14.33594l-14.33594,14.33594c-0.52247,0.50164 -0.73292,1.24653 -0.55021,1.9474c0.18272,0.70087 0.73005,1.24821 1.43093,1.43093c0.70087,0.18272 1.44577,-0.02774 1.9474,-0.55021l14.33594,-14.33594l14.33594,14.33594c0.50164,0.52247 1.24653,0.73293 1.94741,0.55021c0.70088,-0.18272 1.24821,-0.73005 1.43093,-1.43093c0.18272,-0.70088 -0.02774,-1.44577 -0.55021,-1.94741l-14.33594,-14.33594l14.33594,-14.33594c0.59567,-0.57119 0.77939,-1.44958 0.46256,-2.21161c-0.31683,-0.76204 -1.06915,-1.25125 -1.8942,-1.23175z">
     </path>
     </g>
   </g>
-</svg>`,V=()=>`
-<svg class="checkmark-icon ${l()}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="14px" height="14px"><path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"/></svg>
-`,N=()=>`<svg class="down-icon ${l()}" height="12px" width="12px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" transform="rotate(270)" stroke="white"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"></path> </g></svg>`,x=t=>{const e=new Blob([t],{type:"image/svg+xml"});return URL.createObjectURL(e)},q="linear-gradient(180deg,#ffcc89,#d8860b)",P=`
+</svg>`,V=`<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero">
+<g class="close-icon-mobile" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+  <g transform="scale(5.12,5.12)">
+  <path d="M40.7832,7.27148c-0.52851,0.01247 -1.03058,0.23367 -1.39648,0.61523l-14.33594,14.33594l-14.33594,-14.33594c-0.37669,-0.38827 -0.89458,-0.60741 -1.43555,-0.60742c-0.81437,0.00019 -1.54731,0.49409 -1.85324,1.24881c-0.30592,0.75472 -0.12373,1.61957 0.46066,2.18673l14.33594,14.33594l-14.33594,14.33594c-0.52247,0.50164 -0.73292,1.24653 -0.55021,1.9474c0.18272,0.70087 0.73005,1.24821 1.43093,1.43093c0.70087,0.18272 1.44577,-0.02774 1.9474,-0.55021l14.33594,-14.33594l14.33594,14.33594c0.50164,0.52247 1.24653,0.73293 1.94741,0.55021c0.70088,-0.18272 1.24821,-0.73005 1.43093,-1.43093c0.18272,-0.70088 -0.02774,-1.44577 -0.55021,-1.94741l-14.33594,-14.33594l14.33594,-14.33594c0.59567,-0.57119 0.77939,-1.44958 0.46256,-2.21161c-0.31683,-0.76204 -1.06915,-1.25125 -1.8942,-1.23175z">
+  </path>
+  </g>
+</g>
+</svg>`,N=()=>`
+<svg class="checkmark-icon ${c()}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="14px" height="14px"><path d="M 26.980469 5.9902344 A 1.0001 1.0001 0 0 0 26.292969 6.2929688 L 11 21.585938 L 4.7070312 15.292969 A 1.0001 1.0001 0 1 0 3.2929688 16.707031 L 10.292969 23.707031 A 1.0001 1.0001 0 0 0 11.707031 23.707031 L 27.707031 7.7070312 A 1.0001 1.0001 0 0 0 26.980469 5.9902344 z"/></svg>
+`,q=()=>`<svg class="down-icon ${c()}" height="12px" width="12px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" transform="rotate(270)" stroke="white"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_92_" d="M111.213,165.004L250.607,25.607c5.858-5.858,5.858-15.355,0-21.213c-5.858-5.858-15.355-5.858-21.213,0.001 l-150,150.004C76.58,157.211,75,161.026,75,165.004c0,3.979,1.581,7.794,4.394,10.607l150,149.996 C232.322,328.536,236.161,330,240,330s7.678-1.464,10.607-4.394c5.858-5.858,5.858-15.355,0-21.213L111.213,165.004z"></path> </g></svg>`,x=o=>{const e=new Blob([o],{type:"image/svg+xml"});return URL.createObjectURL(e)},P="linear-gradient(180deg,#ffcc89,#d8860b)",R=`
   #darkmode-toggle-label {
     width: 70px;
     height: 28px;
@@ -119,7 +126,7 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
     position: absolute;
     top: 2px;
     left: 2px;
-    background: ${q};
+    background: ${P};
     border-radius: 180px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
   }
@@ -174,7 +181,7 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
   #darkmode-toggle:checked + #darkmode-toggle-label svg.moon {
     fill:#fff;
   }
-`,R=`
+`,G=`
   .send-icon {
     fill: ${r.boxHighlighted};
   }
@@ -196,6 +203,10 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
 
   .down-icon {
     fill: ${r.responseTextColor}
+  }
+
+  .close-icon-mobile {
+    fill: white;
   }
 
 
@@ -222,7 +233,7 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
   .down-icon.dark {
     fill: ${i.responseTextColor}
   }
-`,G=`
+`,Z=`
     .widget__container * {
       box-sizing: border-box;
       font-size: 18px;
@@ -290,6 +301,7 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
   #widget__header__icon {
     width: 44px;
     height: 44px;
+    aspect-ratio: 1/1;
     border: 2px solid ${r.backgroundColor};
   }
   .widget__header h3 {
@@ -299,6 +311,20 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
+  }
+  .widget__header__toggles {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #close-button-mobile {
+    margin-left: 20px;
+  }
+
+  .icon__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #send-form-container {
@@ -539,17 +565,58 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
     color: ${i.responseTextColor};
   }
 
-`,g=t=>{let e=document.createElement("style");return e.type="text/css",e.innerText=t,document.head.appendChild(e),e},Z=`
+
+  /* mobile styles */
+  @media screen and (max-width: 768px) {
+    .widget__container {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      transition: max-height .2s ease;
+      border-radius: 0px;
+
+      z-index: 1000;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .chat {
+      min-height: 444px;
+      flex-grow: 1;
+    }
+
+    #send-form {
+      width: 90%;
+    }
+    #send-form input {
+      width: 70%;
+    }
+
+    .message-bubble {
+      max-width: 70vw;
+    }
+  }
+`,g=o=>{let e=document.createElement("style");return e.type="text/css",e.innerText=o,document.head.appendChild(e),e},W=`
 <div class="chat-container">
   <header class="widget__header">
     <div class="widget__header__data">
       <span class="button__container" id="widget__header__icon">
         <img width="70%" height="70%" src="${x(f)}">
       </span>
+
       <h3>Majic Chatbot</h3>
     </div>
 
-    ${E}
+    <div class="widget__header__toggles">
+      ${E}
+      <div class="icon__container" id="close-button-mobile">${V}</div>
+    </div>
   </header>
 
   <div class="chat" id="chat">
@@ -565,7 +632,7 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
 
         <div class="send-buttons-container">
           <button type="submit" id="send-button" class="icon-button-container">
-            ${F}
+            ${z}
           </button>
 
           ${`
@@ -581,14 +648,14 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
     <div class="powered-by-container">
     <div class="powered-by">
       <span id="grey-text">Powered by </span>&nbsp;
-      <img width="20px" src="${x(O)}">
+      <img width="20px" src="${x(A)}">
       &nbsp;<span> Majic Chatbot<span/>
     </div>
     </div>
   </div>
 
 </div>
-`,W=`
+`,X=`
   .switch-model-container {
     display: none;
     position: absolute;
@@ -671,7 +738,7 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
   .arrow-down.dark {
     border-top: 15px solid ${i.popupBackgroundColor};
   }
-`,X=`
+`,K=`
   .dropdown-container {
     margin-top: 10px;
     width: 100%;
@@ -745,22 +812,22 @@ var M=Object.defineProperty;var $=(t,e,o)=>e in t?M(t,e,{enumerable:!0,configura
   .dropdown-item.selected.dark {
     color: ${i.dropdownSelectedTextColor};
   }
-`;class K{constructor(e,o,n=null){this.items=e,this.current=n,this.container=document.getElementById(o),this.current||(this.current=e[0]),this.show(),g(X)}show(){const e=document.createElement("div");e.innerHTML=this.html(),e.classList.add("dropdown-container"),e.addEventListener("click",o=>{this.justChanged?this.justChanged=!1:this.expand()}),this.container.appendChild(e)}html(){return`<div class="dropdown">
-      <div class="dropdown-data closed ${l()}">
+`;class Y{constructor(e,t,n=null){this.items=e,this.current=n,this.container=document.getElementById(t),this.current||(this.current=e[0]),this.show(),g(K)}show(){const e=document.createElement("div");e.innerHTML=this.html(),e.classList.add("dropdown-container"),e.addEventListener("click",t=>{this.justChanged?this.justChanged=!1:this.expand()}),this.container.appendChild(e)}html(){return`<div class="dropdown">
+      <div class="dropdown-data closed ${c()}">
         <h4>${this.current}</h4>
-        ${N()}
+        ${q()}
       </div>
     </div>
-    `}expand(){const e=document.getElementsByClassName("dropdown-data")[0];e.classList.remove("closed"),e.classList.add("open");const o=this.items.map(d=>`<div class="dropdown-item${d===this.current?" selected":""} ${l()}">
+    `}expand(){const e=document.getElementsByClassName("dropdown-data")[0];e.classList.remove("closed"),e.classList.add("open");const t=this.items.map(d=>`<div class="dropdown-item${d===this.current?" selected":""} ${c()}">
         <h4>${d}</h4>
         <span>
-          ${d===this.current?V():""}
+          ${d===this.current?N():""}
         </span>
-      </div>`);e.innerHTML=o.join(""),document.getElementsByClassName("switch-model-container")[0].classList.add("expand"),document.querySelectorAll(".dropdown-item").forEach(d=>{d.addEventListener("click",c=>{const p=d.querySelector("h4").textContent;this.current=p,this.close()})})}close(){document.getElementsByClassName("switch-model-container")[0].classList.remove("expand");const o=document.getElementsByClassName("dropdown-container")[0];this.container.removeChild(o),this.justChanged=!0,this.show(),document.getElementsByClassName("switch-model-container")[0].classList.remove("active"),b("close")}}const C=["Faster but less accurate 3.5","Slower but more accurate 3.5","Fast but less accurate 3.5"],Y=`<div class="switch-model" id="switch-model">
+      </div>`);e.innerHTML=t.join(""),document.getElementsByClassName("switch-model-container")[0].classList.add("expand"),document.querySelectorAll(".dropdown-item").forEach(d=>{d.addEventListener("click",l=>{const p=d.querySelector("h4").textContent;this.current=p,this.close()})})}close(){document.getElementsByClassName("switch-model-container")[0].classList.remove("expand");const t=document.getElementsByClassName("dropdown-container")[0];this.container.removeChild(t),this.justChanged=!0,this.show(),document.getElementsByClassName("switch-model-container")[0].classList.remove("active"),b("close")}}const C=["Faster but less accurate 3.5","Slower but more accurate 3.5","Fast but less accurate 3.5"],U=`<div class="switch-model" id="switch-model">
   <div class="switch-model-header">
     <h4>Switch your model</h4>
-    <div id="close-switch-model">${z}</div>
+    <div id="close-switch-model">${F}</div>
   </div>
 </div>
 <div class="arrow-down"/>
-`;class U{constructor(){this.switchModelContainer=document.createElement("div"),this.switchModelContainer.innerHTML=Y,this.switchModelContainer.classList.add("switch-model-container"),this.showSwitchModel=!1,this.current=C[0]}addSwitchModel(){document.getElementById("switch-model-relative-container").prepend(this.switchModelContainer),new K(C,"switch-model",this.current),g(W)}setUpListeners(){this.addSwitchModel();const e=document.getElementById("box-button"),o=document.getElementById("close-switch-model");e.addEventListener("click",n=>this.toggleShowSwitchModel()),o.addEventListener("click",n=>this.toggleShowSwitchModel(!0))}toggleShowSwitchModel(e=!1){this.showSwitchModel=!this.showSwitchModel;const o=document.getElementsByClassName("switch-model-container")[0];this.showSwitchModel&&!e||!o.classList.contains("active")?(o.classList.add("active"),b("open")):(o.classList.remove("active"),b("close"))}}function b(t="close"){const e=document.getElementsByClassName("box-icon");Array.from(e).forEach(o=>{t==="open"?o.classList.add("selected"):o.classList.remove("selected")})}class Q{constructor(e="bottom-right"){h(this,"position","");h(this,"open",!1);h(this,"widgetContent",null);var n;this.position=this.getPosition(e),this.open=!1;const o=(n=document.getElementById("majicai-chatbot"))==null?void 0:n.getAttribute("data-chat-bot-id");console.log("Chatbot Id -",o),this.switchModel=new U,this.initialize(),this.injectStyles(),this.switchModel.setUpListeners(),T(),S(),B()}getPosition(e){const[o,n]=e.split("-");return{[o]:"30px",[n]:"30px"}}async initialize(){const e=document.createElement("div");e.style.position="fixed",Object.keys(this.position).forEach(d=>e.style[d]=this.position[d]),document.body.appendChild(e);const o=document.createElement("button");o.classList.add("button__container");const n=document.createElement("span");n.innerHTML=f,n.classList.add("widget__icon"),this.widgetIcon=n;const s=document.createElement("span");s.innerHTML=A,s.classList.add("widget__icon","widget__hidden"),this.closeIcon=s,o.appendChild(this.widgetIcon),o.appendChild(this.closeIcon),o.addEventListener("click",this.toggleOpen.bind(this)),this.widgetContainer=document.createElement("div"),this.widgetContainer.classList.add("widget__hidden","widget__container"),this.createWidgetContent(),e.appendChild(this.widgetContainer),e.appendChild(o)}createWidgetContent(){this.widgetContainer.innerHTML=Z}injectStyles(){const e=document.createElement("style");e.innerHTML=G.replace(/^\s+|\n/gm,""),document.head.appendChild(e),g(R),g(P);const o=window.matchMedia("(prefers-color-scheme: dark)"),n=document.getElementById("darkmode-toggle");o.matches?(n.checked=!0,u()):(n.checked=!1,m())}toggleOpen(){this.open=!this.open,this.open?(this.widgetIcon.classList.add("widget__hidden"),this.closeIcon.classList.remove("widget__hidden"),this.widgetContainer.classList.remove("widget__hidden")):(this.widgetIcon.classList.remove("widget__hidden"),this.closeIcon.classList.add("widget__hidden"),this.widgetContainer.classList.add("widget__hidden"))}}function J(){return new Q}J();
+`;class Q{constructor(){this.switchModelContainer=document.createElement("div"),this.switchModelContainer.innerHTML=U,this.switchModelContainer.classList.add("switch-model-container"),this.showSwitchModel=!1,this.current=C[0]}addSwitchModel(){document.getElementById("switch-model-relative-container").prepend(this.switchModelContainer),new Y(C,"switch-model",this.current),g(X)}setUpListeners(){this.addSwitchModel();const e=document.getElementById("box-button"),t=document.getElementById("close-switch-model");e.addEventListener("click",n=>this.toggleShowSwitchModel()),t.addEventListener("click",n=>this.toggleShowSwitchModel(!0))}toggleShowSwitchModel(e=!1){this.showSwitchModel=!this.showSwitchModel;const t=document.getElementsByClassName("switch-model-container")[0];this.showSwitchModel&&!e||!t.classList.contains("active")?(t.classList.add("active"),b("open")):(t.classList.remove("active"),b("close"))}}function b(o="close"){const e=document.getElementsByClassName("box-icon");Array.from(e).forEach(t=>{o==="open"?t.classList.add("selected"):t.classList.remove("selected")})}class J{constructor(e="bottom-right"){h(this,"position","");h(this,"open",!1);h(this,"widgetContent",null);var n;this.position=this.getPosition(e),this.open=!1;const t=(n=document.getElementById("majicai-chatbot"))==null?void 0:n.getAttribute("data-chat-bot-id");console.log("Chatbot Id -",t),this.switchModel=new Q,this.initialize(),this.injectStyles(),this.switchModel.setUpListeners(),T(),D(),B()}getPosition(e){const[t,n]=e.split("-");return{[t]:"30px",[n]:"30px"}}async initialize(){const e=document.createElement("div");e.style.position="fixed",Object.keys(this.position).forEach(l=>e.style[l]=this.position[l]),document.body.appendChild(e);const t=document.createElement("button");t.classList.add("button__container");const n=document.createElement("span");n.innerHTML=f,n.classList.add("widget__icon"),this.widgetIcon=n;const s=document.createElement("span");s.innerHTML=O,s.classList.add("widget__icon","widget__hidden"),this.closeIcon=s,t.appendChild(this.widgetIcon),t.appendChild(this.closeIcon),t.addEventListener("click",this.toggleOpen.bind(this)),this.widgetContainer=document.createElement("div"),this.widgetContainer.classList.add("widget__hidden","widget__container"),this.createWidgetContent(),e.appendChild(this.widgetContainer),e.appendChild(t),document.getElementById("close-button-mobile").addEventListener("click",this.toggleOpen.bind(this))}createWidgetContent(){this.widgetContainer.innerHTML=W}injectStyles(){const e=document.createElement("style");e.innerHTML=Z.replace(/^\s+|\n/gm,""),document.head.appendChild(e),g(G),g(R);const t=window.matchMedia("(prefers-color-scheme: dark)"),n=document.getElementById("darkmode-toggle");t.matches?(n.checked=!0,m()):(n.checked=!1,u())}toggleOpen(){this.open=!this.open,this.open?(this.widgetIcon.classList.add("widget__hidden"),this.closeIcon.classList.remove("widget__hidden"),this.widgetContainer.classList.remove("widget__hidden")):(this.widgetIcon.classList.remove("widget__hidden"),this.closeIcon.classList.add("widget__hidden"),this.widgetContainer.classList.add("widget__hidden"))}}function ee(){return new J}ee();
